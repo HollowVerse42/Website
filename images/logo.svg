@@ -1,0 +1,41 @@
+<svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brain Icon -->
+  <g transform="translate(0, 0)">
+    <circle cx="20" cy="20" r="20" fill="#4F46E5" />
+    <path d="M20 5C28.2843 5 35 11.7157 35 20C35 28.2843 28.2843 35 20 35C11.7157 35 5 28.2843 5 20C5 11.7157 11.7157 5 20 5Z" fill="#4F46E5" />
+    <path d="M20 8C26.6274 8 32 13.3726 32 20C32 26.6274 26.6274 32 20 32C13.3726 32 8 26.6274 8 20C8 13.3726 13.3726 8 20 8Z" fill="white" />
+    
+    <!-- Neural Network Nodes -->
+    <circle cx="15" cy="15" r="2" fill="#4F46E5" />
+    <circle cx="25" cy="15" r="2" fill="#4F46E5" />
+    <circle cx="15" cy="25" r="2" fill="#4F46E5" />
+    <circle cx="25" cy="25" r="2" fill="#4F46E5" />
+    <circle cx="20" cy="20" r="3" fill="#4F46E5" />
+    
+    <!-- Neural Network Connections -->
+    <line x1="15" y1="15" x2="20" y2="20" stroke="#4F46E5" stroke-width="1" />
+    <line x1="25" y1="15" x2="20" y2="20" stroke="#4F46E5" stroke-width="1" />
+    <line x1="15" y1="25" x2="20" y2="20" stroke="#4F46E5" stroke-width="1" />
+    <line x1="25" y1="25" x2="20" y2="20" stroke="#4F46E5" stroke-width="1" />
+    <line x1="15" y1="15" x2="25" y2="15" stroke="#4F46E5" stroke-width="1" />
+    <line x1="15" y1="25" x2="25" y2="25" stroke="#4F46E5" stroke-width="1" />
+    <line x1="15" y1="15" x2="15" y2="25" stroke="#4F46E5" stroke-width="1" />
+    <line x1="25" y1="15" x2="25" y2="25" stroke="#4F46E5" stroke-width="1" />
+  </g>
+  
+  <!-- Text -->
+  <g transform="translate(45, 0)">
+    <!-- Innov -->
+    <path d="M0 10H3V30H0V10Z" fill="#1F2937" />
+    <path d="M8 10H11V13H8V10Z" fill="#1F2937" />
+    <path d="M8 15H11V30H8V15Z" fill="#1F2937" />
+    <path d="M16 10H19V30H16V30L16 10Z" fill="#1F2937" />
+    <path d="M16 10H19L25 20L31 10H34L26 22L34 30H31L25 22L19 30H16L24 22L16 10Z" fill="#1F2937" />
+    <path d="M39 10H42V27H52V30H39V10Z" fill="#1F2937" />
+    <path d="M57 10H60L70 24V10H73V30H70L60 16V30H57V10Z" fill="#1F2937" />
+    
+    <!-- AI -->
+    <path d="M80 10H83L90 30H87L85 25H78L76 30H73L80 10ZM79 22H84L81.5 15L79 22Z" fill="#4F46E5" />
+    <path d="M95 10H98V30H95V10Z" fill="#4F46E5" />
+  </g>
+</svg> 

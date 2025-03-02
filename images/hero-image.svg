@@ -1,0 +1,71 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+    .float { animation: float 3s ease-in-out infinite; }
+    .pulse { animation: pulse 2s ease-in-out infinite; }
+  </style>
+  
+  <!-- Background Elements -->
+  <circle cx="300" cy="200" r="150" fill="#F3F4F6" />
+  <circle cx="300" cy="200" r="120" fill="#E5E7EB" />
+  
+  <!-- Decorative Elements -->
+  <circle cx="150" cy="100" r="8" fill="#818CF8" class="pulse" />
+  <circle cx="450" cy="80" r="6" fill="#818CF8" class="pulse" />
+  <circle cx="500" cy="250" r="10" fill="#818CF8" class="pulse" />
+  <circle cx="100" cy="300" r="7" fill="#818CF8" class="pulse" />
+  
+  <!-- Brain Network Group -->
+  <g class="float">
+    <!-- Brain Outline -->
+    <path d="M300 120C360 120 400 170 400 220C400 270 360 320 300 320C240 320 200 270 200 220C200 170 240 120 300 120Z" fill="#F9FAFB" stroke="#4F46E5" stroke-width="3"/>
+    
+    <!-- Neural Network Nodes -->
+    <circle cx="250" cy="180" r="10" fill="#4F46E5" />
+    <circle cx="350" cy="180" r="10" fill="#4F46E5" />
+    <circle cx="270" cy="240" r="10" fill="#4F46E5" />
+    <circle cx="330" cy="240" r="10" fill="#4F46E5" />
+    <circle cx="300" cy="200" r="15" fill="#4F46E5" />
+    <circle cx="300" cy="280" r="10" fill="#4F46E5" />
+    <circle cx="230" cy="220" r="8" fill="#4F46E5" />
+    <circle cx="370" cy="220" r="8" fill="#4F46E5" />
+    
+    <!-- Neural Network Connections -->
+    <line x1="250" y1="180" x2="300" y2="200" stroke="#818CF8" stroke-width="2" />
+    <line x1="350" y1="180" x2="300" y2="200" stroke="#818CF8" stroke-width="2" />
+    <line x1="270" y1="240" x2="300" y2="200" stroke="#818CF8" stroke-width="2" />
+    <line x1="330" y1="240" x2="300" y2="200" stroke="#818CF8" stroke-width="2" />
+    <line x1="300" y1="280" x2="300" y2="200" stroke="#818CF8" stroke-width="2" />
+    <line x1="230" y1="220" x2="300" y2="200" stroke="#818CF8" stroke-width="2" />
+    <line x1="370" y1="220" x2="300" y2="200" stroke="#818CF8" stroke-width="2" />
+    <line x1="250" y1="180" x2="270" y2="240" stroke="#818CF8" stroke-width="2" />
+    <line x1="350" y1="180" x2="330" y2="240" stroke="#818CF8" stroke-width="2" />
+    <line x1="270" y1="240" x2="300" y2="280" stroke="#818CF8" stroke-width="2" />
+    <line x1="330" y1="240" x2="300" y2="280" stroke="#818CF8" stroke-width="2" />
+    
+    <!-- Pulse Effects -->
+    <circle cx="300" cy="200" r="25" fill="#4F46E5" opacity="0.2" class="pulse" />
+    <circle cx="300" cy="200" r="40" fill="#4F46E5" opacity="0.1" class="pulse" />
+  </g>
+  
+  <!-- Data Streams -->
+  <g opacity="0.7">
+    <path d="M150 350C180 330 220 340 250 320C280 300 320 310 350 290C380 270 420 280 450 260" stroke="#10B981" stroke-width="2" stroke-dasharray="4 4" />
+    <path d="M150 330C180 310 220 320 250 300C280 280 320 290 350 270C380 250 420 260 450 240" stroke="#4F46E5" stroke-width="2" stroke-dasharray="4 4" />
+  </g>
+  
+  <!-- Binary Code Background -->
+  <text x="120" y="120" fill="#E5E7EB" font-family="monospace" font-size="10">10110101</text>
+  <text x="140" y="140" fill="#E5E7EB" font-family="monospace" font-size="10">01001010</text>
+  <text x="460" y="160" fill="#E5E7EB" font-family="monospace" font-size="10">11010010</text>
+  <text x="440" y="180" fill="#E5E7EB" font-family="monospace" font-size="10">00101101</text>
+</svg> 
