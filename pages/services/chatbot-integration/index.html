@@ -136,9 +136,19 @@
         /* Fix for section overflow */
         section {
             overflow: visible !important;
-            padding: 5rem 0;
+            padding: 7rem 0;
             position: relative;
             width: 100%;
+            margin-bottom: 2rem;
+        }
+        
+        /* Fix for page hero section */
+        .page-hero {
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
         }
         
         /* Fix for page hero content */
@@ -148,6 +158,39 @@
             text-align: center;
             padding: 2rem 1rem;
             overflow: visible !important; /* Ensure content doesn't get clipped */
+            position: relative;
+            z-index: 5;
+        }
+        
+        .page-hero-content h1 {
+            position: relative;
+            z-index: 5;
+            margin-bottom: 2rem;
+        }
+        
+        .page-hero-content p {
+            position: relative;
+            z-index: 5;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Service badge styling */
+        .service-badge {
+            display: inline-block !important;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(107, 142, 251, 0.3);
+        }
+        
+        /* Hide badge elements */
+        .badge {
+            display: none !important;
         }
         
         /* Ensure all elements are visible */
@@ -155,11 +198,6 @@
             opacity: 1 !important;
             visibility: visible !important;
             overflow: visible !important;
-        }
-        
-        /* Hide badge elements */
-        .badge {
-            display: none !important;
         }
         
         .service-card, .benefit-card, .feature-card {
@@ -275,6 +313,29 @@
             margin-bottom: 1rem;
             box-shadow: 0 5px 15px rgba(107, 142, 251, 0.3);
         }
+        
+        /* Fix for section spacing and positioning */
+        .service-benefits {
+            margin-top: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .service-benefits .section-header {
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .service-benefits .section-header h2 {
+            position: relative;
+            z-index: 5;
+            background-color: rgba(18, 18, 18, 0.9);
+            padding: 1rem;
+            display: inline-block;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -302,7 +363,7 @@
     <section class="page-hero">
         <div class="container">
             <div class="page-hero-content" data-aos="fade-up">
-                <div class="badge">AI Chatbot Integration</div>
+                <div class="service-badge">AI Chatbot Integration</div>
                 <h1>Intelligent <span class="highlight">Conversational AI</span> for Your Business</h1>
                 <p>Enhance customer engagement with NLP-powered chatbots that provide 24/7 support and personalized interactions.</p>
             </div>
@@ -624,10 +685,28 @@
                 el.style.opacity = 1;
                 el.style.visibility = 'visible';
                 if (el.hasAttribute('data-aos')) {
+                    el.classList.add('aos-animate');
                     el.removeAttribute('data-aos');
                 }
             });
+
+            // Specifically ensure page-hero elements are visible
+            document.querySelectorAll('.page-hero *, .page-hero-content *').forEach(el => {
+                el.style.opacity = 1;
+                el.style.visibility = 'visible';
+                el.style.overflow = 'visible';
+                el.style.display = el.tagName.toLowerCase() === 'div' ? 'block' : '';
+            });
             
+            // Ensure section headers are properly displayed
+            document.querySelectorAll('.section-header, .section-header h2, .section-header p').forEach(el => {
+                el.style.opacity = 1;
+                el.style.visibility = 'visible';
+                el.style.overflow = 'visible';
+                el.style.position = 'relative';
+                el.style.zIndex = '5';
+            });
+
             // Initialize AOS with enhanced settings
             AOS.init({
                 duration: 800,
@@ -638,16 +717,32 @@
                 delay: 50,
                 disable: true // Disable AOS completely
             });
-            
+
             // Make sure ScrollTrigger is registered
             gsap.registerPlugin(ScrollTrigger);
-            
+
             // Ensure all elements are visible even if animations fail
             setTimeout(function() {
                 document.querySelectorAll('*').forEach(el => {
                     el.style.opacity = 1;
                     el.style.visibility = 'visible';
                     el.style.transform = 'none';
+                });
+                
+                // Double check page-hero elements
+                document.querySelectorAll('.page-hero h1, .service-badge').forEach(el => {
+                    el.style.opacity = 1;
+                    el.style.visibility = 'visible';
+                    el.style.display = el.classList.contains('service-badge') ? 'inline-block' : 'block';
+                });
+                
+                // Double check section headers
+                document.querySelectorAll('.section-header h2').forEach(el => {
+                    el.style.opacity = 1;
+                    el.style.visibility = 'visible';
+                    el.style.position = 'relative';
+                    el.style.zIndex = '5';
+                    el.style.backgroundColor = 'rgba(18, 18, 18, 0.9)';
                 });
             }, 100);
         });

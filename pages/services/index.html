@@ -25,6 +25,7 @@
             text-align: center;
             margin-bottom: 2rem;
             width: 100%;
+            padding: 2rem 2rem 0 2rem;
         }
         
         /* Updated heading styles with better spacing and line height */
@@ -120,7 +121,8 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            overflow: visible !important; /* Prevent content clipping */
+            overflow: hidden !important; /* Prevent content clipping */
+            margin-bottom: 20px; /* Add bottom margin for spacing */
         }
         
         .service-card:hover {
@@ -129,8 +131,8 @@
             border: 1px solid rgba(138, 43, 226, 0.4);
         }
         
-        .service-card-content {
-            padding: 2rem;
+        .service-card .service-content {
+            padding: 0 2rem 2rem 2rem;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -159,6 +161,99 @@
         .section-header {
             margin-bottom: 3rem;
             overflow: visible !important;
+        }
+        
+        /* Fix services grid layout */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Ensure proper spacing between sections */
+        section {
+            padding: 4rem 0;
+            overflow: visible !important;
+        }
+        
+        /* Ensure container has proper width */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: visible !important;
+        }
+        
+        .service-features {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .service-features li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-features li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .learn-more {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .learn-more:hover {
+            color: var(--primary-light);
+        }
+        
+        .learn-more i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .learn-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Media queries for better responsiveness */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                margin-bottom: 30px;
+            }
+            
+            h1 {
+                font-size: 2.8rem !important;
+            }
+            
+            h2 {
+                font-size: 2.4rem !important;
+            }
+            
+            h3 {
+                font-size: 1.6rem !important;
+            }
         }
     </style>
 </head>
@@ -358,6 +453,15 @@
                             <li><a href="../../pages/services/index.html">Services</a></li>
                         </ul>
                     </div>
+                    <div class="footer-column">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="../../pages/services/ai-agents/index.html">AI Agents</a></li>
+                            <li><a href="../../pages/services/brand-engagement/index.html">AI-Powered Brand Engagement</a></li>
+                            <li><a href="../../pages/services/website-builder/index.html">AI Website Builder</a></li>
+                            <li><a href="../../pages/services/chatbot-integration/index.html">Chatbot Integration</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -381,6 +485,7 @@
                 el.style.opacity = 1;
                 el.style.visibility = 'visible';
                 if (el.hasAttribute('data-aos')) {
+                    el.classList.add('aos-animate');
                     el.removeAttribute('data-aos');
                 }
             });
@@ -405,6 +510,41 @@
                     el.style.opacity = 1;
                     el.style.visibility = 'visible';
                     el.style.transform = 'none';
+                });
+                
+                // Fix service card layout
+                document.querySelectorAll('.service-card').forEach(card => {
+                    card.style.display = 'flex';
+                    card.style.flexDirection = 'column';
+                    card.style.height = '100%';
+                    card.style.overflow = 'hidden';
+                });
+                
+                // Fix service content layout
+                document.querySelectorAll('.service-content').forEach(content => {
+                    content.style.display = 'flex';
+                    content.style.flexDirection = 'column';
+                    content.style.flex = '1';
+                    content.style.padding = '0 2rem 2rem 2rem';
+                });
+                
+                // Fix service image layout
+                document.querySelectorAll('.service-image').forEach(image => {
+                    image.style.padding = '2rem 2rem 0 2rem';
+                    image.style.width = '100%';
+                    image.style.textAlign = 'center';
+                });
+                
+                // Fix service features layout
+                document.querySelectorAll('.service-features li').forEach(item => {
+                    item.style.position = 'relative';
+                    item.style.paddingLeft = '1.5rem';
+                });
+                
+                // Fix learn more links
+                document.querySelectorAll('.learn-more').forEach(link => {
+                    link.style.marginTop = 'auto';
+                    link.style.display = 'inline-block';
                 });
             }, 100);
         });
@@ -434,5 +574,62 @@
         }
     </script>
     <!-- Calendly badge widget end -->
+    
+    <script>
+        // Immediate execution to fix layout issues
+        (function() {
+            // Fix service card layout
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.display = 'flex';
+                card.style.flexDirection = 'column';
+                card.style.height = '100%';
+                card.style.overflow = 'hidden';
+                card.style.backgroundColor = 'rgba(26, 26, 26, 0.9)';
+                card.style.borderRadius = '12px';
+                card.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
+                card.style.backdropFilter = 'blur(4px)';
+                card.style.border = '1px solid rgba(138, 43, 226, 0.2)';
+            });
+            
+            // Fix service content layout
+            document.querySelectorAll('.service-content').forEach(content => {
+                content.style.display = 'flex';
+                content.style.flexDirection = 'column';
+                content.style.flex = '1';
+                content.style.padding = '0 2rem 2rem 2rem';
+            });
+            
+            // Fix service image layout
+            document.querySelectorAll('.service-image').forEach(image => {
+                image.style.padding = '2rem 2rem 0 2rem';
+                image.style.width = '100%';
+                image.style.textAlign = 'center';
+            });
+            
+            // Fix service features layout
+            document.querySelectorAll('.service-features li').forEach(item => {
+                item.style.position = 'relative';
+                item.style.paddingLeft = '1.5rem';
+            });
+            
+            // Fix learn more links
+            document.querySelectorAll('.learn-more').forEach(link => {
+                link.style.marginTop = 'auto';
+                link.style.display = 'inline-block';
+                link.style.color = '#8A2BE2';
+                link.style.fontWeight = '600';
+                link.style.textDecoration = 'none';
+            });
+            
+            // Fix services grid
+            const servicesGrid = document.querySelector('.services-grid');
+            if (servicesGrid) {
+                servicesGrid.style.display = 'grid';
+                servicesGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
+                servicesGrid.style.gap = '30px';
+                servicesGrid.style.marginTop = '30px';
+            }
+        })();
+    </script>
 </body>
 </html> 

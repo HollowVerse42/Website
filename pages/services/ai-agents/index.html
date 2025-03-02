@@ -116,15 +116,69 @@
         }
 
         /* Animated agent type icons */
+        .agent-type-card {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+        }
+
         .agent-icon {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
         }
 
         .agent-type-card:hover .agent-icon {
-            transform: scale(1.2);
+            transform: scale(1.1) rotate(5deg);
+            color: var(--primary-light);
+        }
+
+        .agent-type-card h3 {
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .agent-type-card:hover h3 {
+            color: var(--primary-color);
+        }
+
+        .agent-type-features {
+            margin-top: 1.5rem;
+            padding-left: 1.2rem;
+        }
+
+        .agent-type-features li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .agent-type-features li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .agent-type-card:hover .agent-type-features li:before {
             color: var(--primary-light);
         }
 
@@ -358,12 +412,12 @@
         </div>
     </section>
 
-    <section class="cta-section">
+    <section class="cta-section" style="padding: 8rem 0;">
         <div class="container">
-            <div class="cta-content" data-aos="fade-up">
+            <div class="cta-content" data-aos="fade-up" style="padding: 3rem 0;">
                 <h2>Ready to Build Your Custom AI Agent?</h2>
                 <p>Contact us today to discuss how a custom AI agent can transform your business operations and customer experience.</p>
-                <button class="cta-button" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">
+                <button class="cta-button" style="margin-top: 2rem;" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">
                     Schedule a Consultation <i class="fas fa-robot"></i>
                 </button>
             </div>
@@ -394,10 +448,10 @@
                     <div class="footer-column">
                         <h3>Services</h3>
                         <ul>
-                            <li><a href="../../../pages/services/strategy/index.html">AI Strategy</a></li>
-                            <li><a href="../../../pages/services/development/index.html">AI Development</a></li>
-                            <li><a href="../../../pages/services/ml-integration/index.html">ML Integration</a></li>
-                            <li><a href="../../../pages/services/training/index.html">AI Training</a></li>
+                            <li><a href="../../../pages/services/ai-agents/index.html">AI Agents</a></li>
+                            <li><a href="../../../pages/services/brand-engagement/index.html">AI-Powered Brand Engagement</a></li>
+                            <li><a href="../../../pages/services/website-builder/index.html">AI Website Builder</a></li>
+                            <li><a href="../../../pages/services/chatbot-integration/index.html">Chatbot Integration</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -444,16 +498,18 @@
             document.querySelectorAll('.agent-type-card').forEach(card => {
                 card.addEventListener('mouseenter', () => {
                     gsap.to(card.querySelector('.agent-icon'), {
-                        scale: 1.2,
-                        duration: 0.3,
-                        ease: "back.out(1.7)"
+                        scale: 1.1,
+                        rotation: 5,
+                        duration: 0.4,
+                        ease: "power2.out"
                     });
                 });
                 
                 card.addEventListener('mouseleave', () => {
                     gsap.to(card.querySelector('.agent-icon'), {
                         scale: 1,
-                        duration: 0.3,
+                        rotation: 0,
+                        duration: 0.4,
                         ease: "power2.out"
                     });
                 });
