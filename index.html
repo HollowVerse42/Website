@@ -34,10 +34,9 @@
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="pages/services/index.html">Services</a></li>
-                    <li><a href="pages/about/index.html">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Contact</a></li>
                 </ul>
-                <button class="cta-button">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
+                <button class="cta-button" style="display: none;" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -48,11 +47,10 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="badge">AI Consulting & Solutions</div>
                 <h1>Transforming Businesses with <span class="highlight">Intelligent AI Solutions</span></h1>
                 <p>We help forward-thinking companies leverage cutting-edge artificial intelligence to solve complex problems, automate processes, and gain competitive advantage.</p>
                 <div class="cta-buttons">
-                    <button class="primary-button">Schedule a Free Consultation <i class="fas fa-arrow-right"></i></button>
+                    <button class="primary-button" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Schedule a Free Consultation <i class="fas fa-arrow-right"></i></button>
                     <a href="pages/services/index.html" class="secondary-button">Explore Our Services <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
@@ -65,11 +63,20 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <div class="badge">Our Services</div>
                 <h2>Expert AI Solutions</h2>
                 <p>Comprehensive AI services tailored to your business needs</p>
             </div>
             <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/service-ai-agents.svg" alt="Custom AI Agents" onerror="this.src='images/service-placeholder.svg'">
+                    </div>
+                    <div class="service-content">
+                        <h3>Custom AI Agents</h3>
+                        <p>Transform your business with AI agents tailored to your specific needs. We build intelligent assistants that automate tasks, enhance customer interactions, and provide valuable insights.</p>
+                        <a href="pages/services/ai-agents/index.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
                 <div class="service-card">
                     <div class="service-image">
                         <img src="images/service1.svg" alt="AI-Powered Brand Engagement">
@@ -108,7 +115,6 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <div class="badge">About Us</div>
                     <h2>Pioneering ethical AI solutions for tomorrow's challenges</h2>
                     <p>At Panterberry, we're a team of AI experts, data scientists, and developers passionate about creating innovative solutions that drive business growth while maintaining ethical standards.</p>
                     <p>With years of experience in artificial intelligence and machine learning, we help organizations of all sizes harness the power of AI to solve complex problems and create new opportunities.</p>
@@ -138,7 +144,6 @@
     <section id="case-studies" class="case-studies">
         <div class="container">
             <div class="section-header">
-                <div class="badge">Success Stories</div>
                 <h2>What Our Clients Say</h2>
                 <p>Real-world impact of our AI solutions</p>
             </div>
@@ -168,74 +173,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="resources" class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="newsletter-text">
-                    <div class="badge">Stay Updated</div>
-                    <h2>Subscribe to Our Newsletter</h2>
-                    <p>Get the latest insights on AI trends, industry news, and exclusive content delivered to your inbox.</p>
-                </div>
-                <div class="newsletter-form">
-                    <form id="newsletterForm">
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email Address" required>
-                            <button type="submit" class="primary-button">Subscribe <i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="badge">Contact Us</div>
-                    <h2>Get In Touch</h2>
-                    <p>Ready to transform your business with AI? Contact us today for a free consultation!</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>123 Innovation Street, Tech City</p>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <p>info@panterberry.com</p>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Company">
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Tell us about your project" required></textarea>
-                        </div>
-                        <button type="submit" class="primary-button">Schedule a Consultation <i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="chatbot-widget" id="chatbot">
-            <div class="chatbot-button">
-                <i class="fas fa-robot"></i>
             </div>
         </div>
     </section>
@@ -275,7 +212,7 @@
     <!-- Calendly badge widget begin -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/hollowverse42', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/hollowverse42', text: 'Schedule a consultation', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
     <!-- Calendly badge widget end -->
 </body>
 </html> 

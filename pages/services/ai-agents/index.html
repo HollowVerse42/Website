@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom AI Agents - Panterberry AI Solutions</title>
+    <meta name="description" content="Panterberry's custom AI agents service builds personalized AI assistants tailored to your business needs, automating tasks and enhancing customer interactions.">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #8A2BE2;
+            --primary-dark: #320F50;
+            --primary-light: #B76EFF;
+            --bg-dark: #1A1A1A;
+            --text-light: #FFFFFF;
+            --card-bg: rgba(26, 26, 26, 0.9);
+        }
+
+        /* Modern card design */
+        .service-card, .agent-type-card, .success-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+        }
+
+        .service-card:hover, .agent-type-card:hover, .success-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 48px rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+        }
+
+        /* Animated hero section */
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-dark) 100%);
+            padding: 8rem 0;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../../../images/grid-pattern.svg') repeat;
+            opacity: 0.1;
+            animation: backgroundFloat 20s linear infinite;
+        }
+
+        @keyframes backgroundFloat {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        /* Animated service image */
+        .service-image {
+            position: relative;
+            margin-bottom: 3rem;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .service-image img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Agent types section with modern grid */
+        .agent-types {
+            position: relative;
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(50, 15, 80, 0.9) 100%);
+            padding: 6rem 0;
+        }
+
+        .agent-types::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .agent-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        /* Animated agent type icons */
+        .agent-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .agent-type-card:hover .agent-icon {
+            transform: scale(1.2);
+            color: var(--primary-light);
+        }
+
+        /* Success stories section */
+        .case-study {
+            position: relative;
+            padding: 6rem 0;
+            background: var(--bg-dark);
+        }
+
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        /* Modern button styles */
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border: none;
+            border-radius: 30px;
+            padding: 1rem 2rem;
+            color: var(--text-light);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Responsive design improvements */
+        @media (max-width: 768px) {
+            .agent-types-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .success-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../../../index.html">
+                        <img src="../../../images/logo.png" alt="Panterberry Logo">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../../../pages/services/index.html">Services</a></li>
+                    <li><a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Contact</a></li>
+                </ul>
+                <button class="cta-button" style="display: none;" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content" data-aos="fade-up">
+                <h1>Custom <span class="highlight">AI Agents</span> Tailored to Your Business</h1>
+                <p class="hero-subtitle">Transform your operations with intelligent AI assistants that learn, adapt, and evolve with your business needs.</p>
+                <div class="hero-cta">
+                    <button class="cta-button" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">
+                        Schedule a Demo <i class="fas fa-robot"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-image" data-aos="fade-up">
+                <img src="../../../images/service-ai-agents.svg" alt="Custom AI Agents" onerror="this.src='../../../images/service-placeholder.svg'">
+            </div>
+            <div class="service-content" data-aos="fade-up" data-aos-delay="200">
+                <h2>Revolutionize Your Business with Custom AI Agents</h2>
+                <p>Our AI Agents service creates personalized artificial intelligence assistants designed specifically for your business requirements. Unlike generic AI tools, our custom agents are built to understand your industry, your data, and your specific processes.</p>
+                
+                <div class="features-grid" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>Fully Customized</h3>
+                        <p>Built from the ground up to match your specific business needs and objectives</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-plug"></i>
+                        <h3>Seamless Integration</h3>
+                        <p>Works with your existing tools, platforms, and data sources</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Continuous Learning</h3>
+                        <p>Improves over time by learning from interactions and feedback</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure and Private</h3>
+                        <p>Designed with data security and privacy as core principles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="agent-types">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Types of AI Agents We Build</h2>
+                <p>Explore the different types of custom AI agents we can develop for your business</p>
+            </div>
+            
+            <div class="agent-types-grid">
+                <div class="agent-type-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agent-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Customer Service Agents</h3>
+                    <p>Intelligent assistants that handle customer inquiries, provide support, and resolve issues 24/7 across multiple channels.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Multi-channel support</li>
+                        <li><i class="fas fa-check"></i> Sentiment analysis</li>
+                        <li><i class="fas fa-check"></i> Seamless handoff</li>
+                    </ul>
+                </div>
+                
+                <div class="agent-type-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="agent-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Data Analysis Agents</h3>
+                    <p>Specialized agents that continuously analyze your business data to identify trends, anomalies, and actionable insights.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Real-time monitoring</li>
+                        <li><i class="fas fa-check"></i> Predictive analytics</li>
+                        <li><i class="fas fa-check"></i> Visual reporting</li>
+                    </ul>
+                </div>
+                
+                <div class="agent-type-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="agent-icon"><i class="fas fa-tasks"></i></div>
+                    <h3>Process Automation Agents</h3>
+                    <p>Task-oriented agents that automate repetitive workflows and business processes across your organization.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Document processing</li>
+                        <li><i class="fas fa-check"></i> Workflow automation</li>
+                        <li><i class="fas fa-check"></i> Data synchronization</li>
+                    </ul>
+                </div>
+                
+                <div class="agent-type-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="agent-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <h3>Content Creation Agents</h3>
+                    <p>Creative agents that generate high-quality, on-brand content for marketing, documentation, and communications.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Multi-format content</li>
+                        <li><i class="fas fa-check"></i> Brand consistency</li>
+                        <li><i class="fas fa-check"></i> Multilingual support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-study">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Success Stories</h2>
+                <p>See how our custom AI agents transformed businesses</p>
+            </div>
+            
+            <div class="success-grid">
+                <div class="success-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="success-card-content">
+                        <div class="success-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h3>E-commerce Growth</h3>
+                        <p>A mid-sized e-commerce company implemented our custom AI customer service agent, resulting in:</p>
+                        <ul>
+                            <li><i class="fas fa-arrow-up"></i> 42% increase in satisfaction</li>
+                            <li><i class="fas fa-arrow-down"></i> 67% reduction in response time</li>
+                            <li><i class="fas fa-arrow-down"></i> 35% decrease in tickets</li>
+                        </ul>
+                        <blockquote>
+                            "The custom AI agent has transformed our customer service operations. It handles routine inquiries flawlessly while learning our product catalog and policies better than many human agents."
+                        </blockquote>
+                        <p class="quote-author">- Jennifer Kim, Customer Experience Director</p>
+                    </div>
+                </div>
+                
+                <div class="success-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="success-card-content">
+                        <div class="success-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <h3>Financial Services ROI</h3>
+                        <p>A financial services company deployed our data analysis and process automation agents, achieving:</p>
+                        <ul>
+                            <li><i class="fas fa-money-bill-wave"></i> $1.2M annual savings</li>
+                            <li><i class="fas fa-arrow-down"></i> 58% fewer compliance errors</li>
+                            <li><i class="fas fa-clock"></i> 3.5 hours saved per employee</li>
+                        </ul>
+                        <blockquote>
+                            "The AI agents have become an indispensable part of our operations. They've not only reduced costs but also improved accuracy and allowed our team to focus on strategic initiatives."
+                        </blockquote>
+                        <p class="quote-author">- Robert Chen, COO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Build Your Custom AI Agent?</h2>
+                <p>Contact us today to discuss how a custom AI agent can transform your business operations and customer experience.</p>
+                <button class="cta-button" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">
+                    Schedule a Consultation <i class="fas fa-robot"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../../../images/logo.png" alt="Panterberry Logo">
+                    <p>Pioneering ethical AI solutions for tomorrow's challenges</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="../../../pages/services/ai-agents/index.html">AI Agents</a></li>
+                            <li><a href="../../../pages/services/index.html">Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="../../../pages/services/strategy/index.html">AI Strategy</a></li>
+                            <li><a href="../../../pages/services/development/index.html">AI Development</a></li>
+                            <li><a href="../../../pages/services/ml-integration/index.html">ML Integration</a></li>
+                            <li><a href="../../../pages/services/training/index.html">AI Training</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li><a href="mailto:info@panterberry.com">info@panterberry.com</a></li>
+                            <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Panterberry. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS with enhanced settings
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 50,
+                delay: 0,
+                disable: false
+            });
+            
+            // Initialize GSAP animations
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate service image
+            gsap.to('.service-image img', {
+                y: 20,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut"
+            });
+            
+            // Animate agent type cards on hover
+            document.querySelectorAll('.agent-type-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card.querySelector('.agent-icon'), {
+                        scale: 1.2,
+                        duration: 0.3,
+                        ease: "back.out(1.7)"
+                    });
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card.querySelector('.agent-icon'), {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+            });
+            
+            // Animate success metrics
+            gsap.utils.toArray('.success-card').forEach(card => {
+                ScrollTrigger.create({
+                    trigger: card,
+                    start: "top 80%",
+                    onEnter: () => {
+                        card.querySelectorAll('ul li').forEach((li, index) => {
+                            gsap.from(li, {
+                                opacity: 0,
+                                x: -20,
+                                duration: 0.5,
+                                delay: index * 0.2
+                            });
+                        });
+                    }
+                });
+            });
+            
+            // Ensure all elements are visible
+            setTimeout(() => {
+                document.querySelectorAll('[data-aos]').forEach(el => {
+                    el.classList.add('aos-animate');
+                });
+            }, 100);
+            
+            // Hide Calendly badge
+            setTimeout(() => {
+                const calendlyBadge = document.querySelector('.calendly-badge-widget');
+                if (calendlyBadge) {
+                    calendlyBadge.style.display = 'none';
+                }
+            }, 100);
+        });
+    </script>
+
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">
+        window.onload = function() { 
+            Calendly.initBadgeWidget({ 
+                url: 'https://calendly.com/hollowverse42', 
+                text: 'Schedule a consultation', 
+                color: '#0069ff', 
+                textColor: '#ffffff', 
+                branding: true 
+            });
+        }
+    </script>
+    <!-- Calendly badge widget end -->
+</body>
+</html> 

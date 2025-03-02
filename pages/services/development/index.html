@@ -1,0 +1,263 @@
+<style>
+    /* Additional styles for card-based design */
+    .service-image img {
+        max-width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+        display: block; /* Ensure proper display */
+        margin: 0 auto; /* Center the image */
+    }
+    
+    .service-image {
+        text-align: center;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+    
+    /* Updated heading styles with better spacing and line height */
+    h1 {
+        font-size: 3.5rem !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.5px;
+        margin-bottom: 1.5rem;
+        line-height: 1.4 !important; /* Increased line height to prevent clipping */
+        overflow: visible !important; /* Prevent clipping */
+        padding: 0.5rem 0; /* Add some padding */
+        max-width: 100%;
+        word-wrap: break-word; /* Ensure long words break properly */
+        hyphens: auto; /* Enable hyphenation for better text wrapping */
+    }
+    
+    h2 {
+        font-size: 2.8rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 1.2rem;
+        line-height: 1.3 !important; /* Prevent clipping */
+        overflow: visible !important; /* Prevent clipping */
+        max-width: 100%;
+    }
+    
+    h3 {
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        line-height: 1.4 !important; /* Prevent clipping */
+        overflow: visible !important; /* Prevent clipping */
+        max-width: 100%;
+    }
+    
+    .section-header h2 {
+        font-size: 3rem !important;
+        font-weight: 800 !important;
+        text-shadow: 0 2px 10px rgba(138, 43, 226, 0.3);
+        padding: 0.5rem 0; /* Add some padding */
+        margin-bottom: 1rem;
+        max-width: 100%;
+    }
+    
+    /* Success story cards grid - without images */
+    .success-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .success-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 2.5rem;
+        background: rgba(26, 26, 26, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(138, 43, 226, 0.2);
+        transition: all 0.3s ease;
+    }
+    
+    .success-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(138, 43, 226, 0.3);
+        border: 1px solid rgba(138, 43, 226, 0.4);
+    }
+    
+    .success-card-content {
+        flex: 1;
+    }
+    
+    .success-card-content h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.8rem !important;
+        color: var(--primary-light);
+    }
+    
+    .success-card-content ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .success-card-content blockquote {
+        font-style: italic;
+        border-left: 3px solid var(--primary-color);
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        color: #e0e0e0;
+    }
+    
+    .quote-author {
+        text-align: right;
+        font-weight: 600;
+        color: var(--primary-light);
+    }
+    
+    /* Fix for container overflow */
+    .container {
+        overflow: visible !important;
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 15px; /* Add some padding to prevent content touching edges */
+    }
+    
+    /* Fix for section overflow */
+    section {
+        overflow: visible !important;
+        padding: 5rem 0;
+        position: relative;
+        width: 100%;
+    }
+    
+    /* Fix for page hero content */
+    .page-hero-content {
+        max-width: 900px; /* Increased from 800px to give more space */
+        margin: 0 auto;
+        text-align: center;
+        padding: 2rem 1rem;
+        overflow: visible !important; /* Ensure content doesn't get clipped */
+    }
+    
+    /* Ensure all elements are visible */
+    body * {
+        opacity: 1 !important;
+        visibility: visible !important;
+        overflow: visible !important;
+    }
+    
+    /* Hide badge elements */
+    .badge {
+        display: none !important;
+    }
+</style>
+
+<section class="case-study">
+    <div class="container">
+        <div class="section-header">
+            <h2>Success Story</h2>
+            <p>See how our AI development services transformed businesses</p>
+        </div>
+        
+        <div class="success-grid">
+            <div class="success-card">
+                <div class="success-card-content">
+                    <h3>Fintech Startup Reduces Development Time by 65%</h3>
+                    <p>A growing fintech startup partnered with us for AI-powered development, resulting in:</p>
+                    <ul>
+                        <li>65% reduction in development time</li>
+                        <li>78% fewer bugs in production</li>
+                        <li>$1.8M saved in development costs</li>
+                    </ul>
+                    <blockquote>
+                        "The AI-assisted development approach completely transformed our product roadmap. We're now able to ship features in days that would have taken weeks or months."
+                    </blockquote>
+                    <p class="quote-author">- Michael Torres, CTO</p>
+                </div>
+            </div>
+            
+            <div class="success-card">
+                <div class="success-card-content">
+                    <h3>Enterprise Software Company Increases Feature Velocity by 3x</h3>
+                    <p>A leading enterprise software provider utilized our AI development services, achieving:</p>
+                    <ul>
+                        <li>3x increase in feature delivery velocity</li>
+                        <li>42% improvement in code quality metrics</li>
+                        <li>85% reduction in critical production issues</li>
+                    </ul>
+                    <blockquote>
+                        "The AI-powered development approach has been a game-changer for our engineering team. We're delivering more features with higher quality and spending less time debugging issues."
+                    </blockquote>
+                    <p class="quote-author">- Lisa Patel, VP of Engineering</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure all elements are visible immediately
+        document.querySelectorAll('*').forEach(el => {
+            el.style.opacity = 1;
+            el.style.visibility = 'visible';
+            if (el.hasAttribute('data-aos')) {
+                el.removeAttribute('data-aos');
+            }
+        });
+        
+        // Initialize AOS with enhanced settings
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false,
+            offset: 50,
+            delay: 50,
+            disable: true // Disable AOS completely
+        });
+        
+        // Make sure ScrollTrigger is registered
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Ensure all elements are visible even if animations fail
+        setTimeout(function() {
+            document.querySelectorAll('*').forEach(el => {
+                el.style.opacity = 1;
+                el.style.visibility = 'visible';
+                el.style.transform = 'none';
+            });
+        }, 100);
+    });
+</script>
+
+<!-- Update the navigation contact link to open Calendly -->
+<ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../pages/services/index.html" class="active">Services</a></li>
+    <li><a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Contact</a></li>
+</ul>
+<button class="cta-button" style="display: none;" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
+
+<!-- Calendly badge widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">
+    window.onload = function() { 
+        // Initialize Calendly but don't show the badge widget
+        Calendly.initBadgeWidget({ 
+            url: 'https://calendly.com/hollowverse42', 
+            text: 'Schedule a consultation', 
+            color: '#0069ff', 
+            textColor: '#ffffff', 
+            branding: true 
+        });
+        
+        // Hide the Calendly badge widget
+        setTimeout(function() {
+            const calendlyBadge = document.querySelector('.calendly-badge-widget');
+            if (calendlyBadge) {
+                calendlyBadge.style.display = 'none';
+            }
+        }, 100);
+    }
+</script>
+<!-- Calendly badge widget end --> 

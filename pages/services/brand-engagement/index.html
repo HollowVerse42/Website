@@ -14,43 +14,385 @@
     <style>
         /* Additional styles for card-based design */
         .service-image img {
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
             transition: transform 0.3s ease;
+            display: block; /* Ensure proper display */
+            margin: 0 auto; /* Center the image */
         }
         
-        .service-image img:hover {
-            transform: scale(1.05);
+        .service-image {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: 100%;
         }
         
-        .service-card, .benefit-card, .feature-card {
-            background: rgba(255, 255, 255, 0.03);
+        /* Updated heading styles with better spacing and line height */
+        h1 {
+            font-size: 3.5rem !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.5rem;
+            line-height: 1.4 !important; /* Increased line height to prevent clipping */
+            overflow: visible !important; /* Prevent clipping */
+            padding: 0.5rem 0; /* Add some padding */
+            max-width: 100%;
+            word-wrap: break-word; /* Ensure long words break properly */
+            hyphens: auto; /* Enable hyphenation for better text wrapping */
+        }
+        
+        h2 {
+            font-size: 2.8rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 1.2rem;
+            line-height: 1.3 !important; /* Prevent clipping */
+            overflow: visible !important; /* Prevent clipping */
+            max-width: 100%;
+        }
+        
+        h3 {
+            font-size: 2rem !important;
+            font-weight: 700 !important;
+            line-height: 1.4 !important; /* Prevent clipping */
+            overflow: visible !important; /* Prevent clipping */
+            max-width: 100%;
+        }
+        
+        .section-header h2 {
+            font-size: 3rem !important;
+            font-weight: 800 !important;
+            text-shadow: 0 2px 10px rgba(138, 43, 226, 0.3);
+            padding: 0.5rem 0; /* Add some padding */
+            margin-bottom: 1rem;
+            max-width: 100%;
+        }
+        
+        .service-card, .benefit-card, .feature-card, .success-card {
+            background: rgba(26, 26, 26, 0.9);
             border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.3s ease;
+            opacity: 1 !important; /* Ensure visibility */
+            transform: none !important; /* Reset any transforms */
+        }
+        
+        .service-card:hover, .benefit-card:hover, .feature-card:hover, .success-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 12px 40px rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+        }
+        
+        /* Success story cards grid - without images */
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .success-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 2.5rem;
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
             transition: all 0.3s ease;
         }
         
-        .service-card:hover, .benefit-card:hover, .feature-card:hover {
+        .success-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 40px rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+        }
+        
+        .success-card-content {
+            flex: 1;
+        }
+        
+        .success-card-content h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.8rem !important;
+            color: var(--primary-light);
+        }
+        
+        .success-card-content ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .success-card-content blockquote {
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: #e0e0e0;
+        }
+        
+        .quote-author {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-light);
         }
         
         .case-study-content {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(26, 26, 26, 0.9);
             border-radius: 16px;
             padding: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.2);
         }
         
         .case-study-image img {
             max-width: 80%;
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            display: block; /* Ensure proper display */
+            margin: 0 auto; /* Center the image */
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem !important;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .service-features li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-features li strong {
+            color: var(--primary-light);
+        }
+        
+        /* Fix for container overflow */
+        .container {
+            overflow: visible !important;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 0 15px; /* Add some padding to prevent content touching edges */
+        }
+        
+        /* Fix for section overflow */
+        section {
+            overflow: visible !important;
+            padding: 5rem 0;
+            position: relative;
+            width: 100%;
+        }
+        
+        /* Fix for page hero content */
+        .page-hero-content {
+            max-width: 900px; /* Increased from 800px to give more space */
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem 1rem;
+            overflow: visible !important; /* Ensure content doesn't get clipped */
+        }
+        
+        /* Ensure all elements are visible */
+        body * {
+            opacity: 1 !important;
+            visibility: visible !important;
+            overflow: visible !important;
+        }
+        
+        /* Styles for AI Actors Showcase section */
+        .ai-actors-showcase {
+            background: linear-gradient(rgba(10, 10, 20, 0.8), rgba(10, 10, 20, 0.9)), url('../../../images/ai-pattern.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 6rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+        }
+        
+        .feature-card h3 {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem !important;
+            color: var(--primary-light);
+        }
+        
+        .ai-actors-content {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            margin-top: 2rem;
+        }
+        
+        .ai-actors-content h3 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--primary-light);
+        }
+        
+        .implementation-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .implementation-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .implementation-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .implementation-list li strong {
+            color: var(--primary-light);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Styles for AI Actors Case Study section */
+        .ai-actors-case-study {
+            background: linear-gradient(rgba(20, 20, 40, 0.9), rgba(20, 20, 40, 0.95));
+            padding: 6rem 0;
+        }
+        
+        .case-study-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .case-study-card {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+        }
+        
+        .case-study-header {
+            background: rgba(138, 43, 226, 0.2);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .case-study-header h3 {
+            margin: 0;
+            font-size: 1.8rem !important;
+            color: var(--primary-light);
+        }
+        
+        .case-study-tag {
+            background: rgba(138, 43, 226, 0.3);
+            color: var(--primary-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .case-study-body {
+            padding: 2rem;
+            flex: 1;
+        }
+        
+        .case-study-challenge, .case-study-solution {
+            margin-bottom: 1.5rem;
+        }
+        
+        .case-study-results {
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .case-study-results h4 {
+            color: var(--primary-light);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .case-study-results ul {
+            padding-left: 1.5rem;
+            margin-bottom: 0;
+        }
+        
+        .case-study-results li {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .case-study-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-study-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .case-study-tag {
+                margin-top: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -66,10 +408,9 @@
                 <ul class="nav-links">
                     <li><a href="../../../index.html">Home</a></li>
                     <li><a href="../../../pages/services/index.html" class="active">Services</a></li>
-                    <li><a href="../../../pages/about/index.html">About Us</a></li>
-                    <li><a href="../../../index.html#contact">Contact</a></li>
+                    <li><a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Contact</a></li>
                 </ul>
-                <button class="cta-button">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
+                <button class="cta-button" style="display: none;" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -81,8 +422,8 @@
         <div class="container">
             <div class="page-hero-content" data-aos="fade-up">
                 <div class="badge">AI-Powered Brand Engagement</div>
-                <h1>Transform Your <span class="highlight">Brand Presence</span> with AI</h1>
-                <p>Leverage virtual influencers and hyper-personalized campaigns to connect with your audience like never before.</p>
+                <h1>Transform Your <span class="highlight">Brand Presence</span> with AI Actors</h1>
+                <p>Leverage our custom AI actors and actresses to promote your merchandise and create hyper-personalized campaigns that connect with your audience like never before.</p>
             </div>
         </div>
     </section>
@@ -94,16 +435,70 @@
                     <img src="../../../images/service1.svg" alt="AI-Powered Brand Engagement">
                 </div>
                 <div class="service-description" data-aos="fade-left" data-aos-delay="300">
-                    <h2>Reimagine Brand Engagement</h2>
-                    <p>Imagine your brand promoted by virtual influencers who never sleep. Our custom AI models analyze consumer behavior to create hyper-personalized campaigns—dynamic ads, social content, and video endorsements tailored to your audience.</p>
-                    <p>With Panterberry's AI-Powered Brand Engagement solutions, you can create meaningful connections with your audience through data-driven storytelling and real-time sentiment analysis.</p>
+                    <h2>Reimagine Brand Engagement with AI Talent</h2>
+                    <p>Imagine your brand promoted by AI actors and actresses who never sleep, never age, and are always on-brand. Our custom AI models create photorealistic digital talent that can showcase your merchandise, engage with your audience, and deliver your message with perfect consistency across all channels.</p>
+                    <p>With Panterberry's AI Actors & Actresses, you can create meaningful connections with your audience through data-driven storytelling and real-time sentiment analysis, all while maintaining complete creative control over your brand ambassadors.</p>
                     <ul class="service-features">
-                        <li><strong>Virtual Influencers:</strong> Create AI-powered brand ambassadors that resonate with your target audience</li>
-                        <li><strong>Hyper-Personalized Campaigns:</strong> Deliver tailored content based on individual preferences and behaviors</li>
+                        <li><strong>Custom AI Talent:</strong> Create photorealistic AI actors and actresses tailored to your brand identity and target audience</li>
+                        <li><strong>Merchandise Promotion:</strong> Showcase your products with perfect presentation in any setting or scenario</li>
+                        <li><strong>Multi-Channel Deployment:</strong> Use your AI talent across social media, websites, digital ads, and video content</li>
                         <li><strong>Real-Time Analytics:</strong> Monitor campaign performance and adjust strategies on the fly</li>
-                        <li><strong>Multi-Channel Integration:</strong> Seamlessly deploy across social media, email, web, and more</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ai-actors-showcase">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our AI Actors & Actresses</h2>
+                <p>Custom digital talent for your brand's unique needs</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Fully Customizable</h3>
+                    <p>Create AI talent with specific appearances, personalities, and voices that perfectly align with your brand identity and resonate with your target audience.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Perfect Product Presentation</h3>
+                    <p>Showcase your merchandise in ideal lighting, angles, and settings without the limitations of physical photoshoots or the expense of location filming.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Multilingual Capabilities</h3>
+                    <p>Our AI actors can speak any language fluently, allowing you to reach global markets with localized content without additional talent costs.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Dynamic Content Creation</h3>
+                    <p>Generate thousands of content variations with your AI talent to test different approaches and personalize messaging for different audience segments.</p>
+                </div>
+            </div>
+            
+            <div class="ai-actors-content" data-aos="fade-up" data-aos-delay="400">
+                <h3>How Our AI Actors Promote Your Merchandise</h3>
+                <ul class="implementation-list">
+                    <li><strong>Social Media Campaigns:</strong> Create daily content featuring your products across all platforms with consistent quality and messaging</li>
+                    <li><strong>E-commerce Integration:</strong> Implement virtual try-ons and interactive product demonstrations to boost conversion rates</li>
+                    <li><strong>Video Advertisements:</strong> Produce high-quality video content featuring your AI talent showcasing your merchandise</li>
+                    <li><strong>Virtual Events:</strong> Host online product launches and demonstrations with AI presenters that can interact with your audience</li>
+                    <li><strong>Personalized Marketing:</strong> Create one-to-one marketing experiences where the AI actor addresses customers by name</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -121,7 +516,7 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Increased Engagement</h3>
-                    <p>Our AI-powered campaigns achieve 40% higher engagement rates compared to traditional marketing approaches.</p>
+                    <p>Our AI actors and actresses achieve 40% higher engagement rates compared to traditional marketing approaches, creating authentic connections with your audience.</p>
                 </div>
                 
                 <div class="benefit-card" data-aos="flip-up" data-aos-delay="200">
@@ -129,7 +524,7 @@
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h3>Precision Targeting</h3>
-                    <p>Reach exactly the right audience with AI that analyzes thousands of data points to optimize targeting.</p>
+                    <p>Customize AI talent to perfectly match your target demographics, with personalities and appearances that resonate with specific audience segments.</p>
                 </div>
                 
                 <div class="benefit-card" data-aos="flip-up" data-aos-delay="300">
@@ -137,7 +532,7 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3>24/7 Brand Presence</h3>
-                    <p>Virtual influencers work around the clock, ensuring your brand is always active and engaging.</p>
+                    <p>AI actors work around the clock, ensuring your merchandise is always being promoted with consistent quality and messaging.</p>
                 </div>
                 
                 <div class="benefit-card" data-aos="flip-up" data-aos-delay="400">
@@ -145,7 +540,66 @@
                         <i class="fas fa-dollar-sign"></i>
                     </div>
                     <h3>Higher ROI</h3>
-                    <p>Clients report an average 35% increase in ROI after implementing our AI brand engagement solutions.</p>
+                    <p>Clients report an average 35% increase in ROI after implementing our AI actors for merchandise promotion, with significant cost savings compared to traditional talent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ai-actors-case-study">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>AI Actors in Action</h2>
+                <p>Real-world examples of our AI talent promoting merchandise</p>
+            </div>
+            
+            <div class="case-study-container">
+                <div class="case-study-card" data-aos="fade-up">
+                    <div class="case-study-header">
+                        <h3>Luxury Apparel Brand</h3>
+                        <span class="case-study-tag">Fashion & Accessories</span>
+                    </div>
+                    <div class="case-study-body">
+                        <p class="case-study-challenge"><strong>Challenge:</strong> A luxury apparel brand needed to showcase their new collection across 12 different markets with culturally relevant models, but faced budget constraints for multiple photoshoots.</p>
+                        <p class="case-study-solution"><strong>Solution:</strong> We created a team of 6 AI models with diverse appearances that could be digitally placed in location-specific settings. Each AI actor was customized to reflect the aesthetic preferences of different regional markets.</p>
+                        <div class="case-study-results">
+                            <h4>Results:</h4>
+                            <ul>
+                                <li>Created 1,200+ unique promotional assets across all markets</li>
+                                <li>Reduced production costs by 68% compared to traditional photoshoots</li>
+                                <li>Increased engagement by 47% with culturally relevant AI talent</li>
+                                <li>Achieved 52% higher conversion rates on product pages</li>
+                            </ul>
+                        </div>
+                        <blockquote>
+                            "The AI models allowed us to create region-specific campaigns that resonated with local audiences while maintaining our brand's luxury aesthetic. The ROI has been exceptional."
+                        </blockquote>
+                        <p class="quote-author">- Alexandra Rivera, Global Marketing Director</p>
+                    </div>
+                </div>
+                
+                <div class="case-study-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="case-study-header">
+                        <h3>Consumer Electronics Company</h3>
+                        <span class="case-study-tag">Technology Products</span>
+                    </div>
+                    <div class="case-study-body">
+                        <p class="case-study-challenge"><strong>Challenge:</strong> A consumer electronics company needed to demonstrate complex product features across multiple devices in a consistent, engaging way.</p>
+                        <p class="case-study-solution"><strong>Solution:</strong> We developed an AI spokesperson who became the brand's digital product expert, creating hundreds of demonstration videos showing product features in action.</p>
+                        <div class="case-study-results">
+                            <h4>Results:</h4>
+                            <ul>
+                                <li>Created 300+ product demonstration videos in just 2 weeks</li>
+                                <li>Reduced customer support inquiries by 42%</li>
+                                <li>Increased average time spent on product pages by 3.5 minutes</li>
+                                <li>Achieved 38% higher attachment rate for accessories</li>
+                            </ul>
+                        </div>
+                        <blockquote>
+                            "Our AI product specialist has transformed how we showcase our technology. Customers understand our products better, leading to higher satisfaction and fewer returns."
+                        </blockquote>
+                        <p class="quote-author">- David Kim, Head of Digital Experience</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -158,23 +612,37 @@
                 <p>See how our AI-powered brand engagement transformed results</p>
             </div>
             
-            <div class="case-study-content" data-aos="fade-up" data-aos-delay="200">
-                <div class="case-study-image" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="../../../images/testimonial1.png" alt="Success Story">
+            <div class="success-grid">
+                <div class="success-card">
+                    <div class="success-card-content">
+                        <h3>Fashion Retailer Increases Conversions by 45%</h3>
+                        <p>A leading fashion retailer implemented our AI actors to showcase their seasonal collection, resulting in:</p>
+                        <ul>
+                            <li>45% increase in conversion rates</li>
+                            <li>60% higher engagement on social media</li>
+                            <li>32% reduction in customer acquisition costs</li>
+                        </ul>
+                        <blockquote>
+                            "The AI actors completely transformed how we showcase our merchandise. They're indistinguishable from human models but give us unlimited creative control."
+                        </blockquote>
+                        <p class="quote-author">- Sarah Johnson, Marketing Director</p>
+                    </div>
                 </div>
-                <div class="case-study-text">
-                    <h3>Fashion Retailer Increases Conversions by 45%</h3>
-                    <p>A leading fashion retailer implemented our AI-powered virtual influencers and personalized campaign strategy, resulting in:</p>
-                    <ul>
-                        <li>45% increase in conversion rates</li>
-                        <li>60% higher engagement on social media</li>
-                        <li>32% reduction in customer acquisition costs</li>
-                        <li>3x increase in user-generated content</li>
-                    </ul>
-                    <blockquote>
-                        "The virtual influencer campaign completely transformed how we connect with our audience. The level of personalization and engagement we've achieved with Panterberry's AI solutions has exceeded all our expectations."
-                    </blockquote>
-                    <p class="quote-author">- Sarah Johnson, Marketing Director</p>
+                
+                <div class="success-card">
+                    <div class="success-card-content">
+                        <h3>Tech Startup Grows User Base by 78%</h3>
+                        <p>An emerging tech startup leveraged our AI actresses for product demonstrations and marketing campaigns, achieving:</p>
+                        <ul>
+                            <li>78% growth in active user base</li>
+                            <li>52% increase in app downloads</li>
+                            <li>3.2x improvement in user retention rates</li>
+                        </ul>
+                        <blockquote>
+                            "Our AI spokesperson has become the face of our brand, creating consistency across all our marketing channels that was impossible before."
+                        </blockquote>
+                        <p class="quote-author">- Michael Chen, CEO</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -183,10 +651,10 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Ready to Transform Your Brand Engagement?</h2>
-                <p>Contact us today to schedule a free consultation and discover how our AI-powered brand engagement solutions can help you achieve your marketing goals.</p>
+                <h2>Ready to Transform Your Brand with AI Actors?</h2>
+                <p>Contact us today to schedule a free consultation and discover how our AI actors and actresses can help promote your merchandise and achieve your marketing goals.</p>
                 <div class="cta-buttons">
-                    <a href="../../../index.html#contact" class="primary-button" data-aos="zoom-in" data-aos-delay="200">Schedule a Consultation <i class="fas fa-arrow-right"></i></a>
+                    <a href="../../../index.html#contact" class="primary-button" data-aos="zoom-in" data-aos-delay="200" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hollowverse42'});return false;">Schedule a Consultation <i class="fas fa-arrow-right"></i></a>
                     <a href="../index.html" class="secondary-button" data-aos="zoom-in" data-aos-delay="300">Explore Other Services <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
@@ -233,56 +701,63 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Ensure all elements are visible immediately
+            document.querySelectorAll('*').forEach(el => {
+                el.style.opacity = 1;
+                el.style.visibility = 'visible';
+                if (el.hasAttribute('data-aos')) {
+                    el.removeAttribute('data-aos');
+                }
+            });
+            
             // Initialize AOS with enhanced settings
             AOS.init({
                 duration: 800,
                 easing: 'ease-in-out',
-                once: false,
-                mirror: true,
-                offset: 100,
-                delay: 100
+                once: true,
+                mirror: false,
+                offset: 50,
+                delay: 50,
+                disable: true // Disable AOS completely
             });
             
-            // Add GSAP animations
-            gsap.from(".page-hero-content", {
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
+            // Make sure ScrollTrigger is registered
+            gsap.registerPlugin(ScrollTrigger);
             
-            gsap.from(".service-card", {
-                scrollTrigger: {
-                    trigger: ".service-card",
-                    start: "top 80%"
-                },
-                y: 30,
-                opacity: 0,
-                duration: 0.8,
-                ease: "back.out(1.7)"
-            });
-            
-            // Animate benefit cards sequentially
-            gsap.utils.toArray(".benefit-card").forEach((card, i) => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 85%"
-                    },
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.6,
-                    delay: i * 0.2,
-                    ease: "power2.out"
+            // Ensure all elements are visible even if animations fail
+            setTimeout(function() {
+                document.querySelectorAll('*').forEach(el => {
+                    el.style.opacity = 1;
+                    el.style.visibility = 'visible';
+                    el.style.transform = 'none';
                 });
-            });
+            }, 100);
         });
     </script>
     
     <!-- Calendly badge widget begin -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/hollowverse42', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+    <script type="text/javascript">
+        window.onload = function() { 
+            // Initialize Calendly but don't show the badge widget
+            Calendly.initBadgeWidget({ 
+                url: 'https://calendly.com/hollowverse42', 
+                text: 'Schedule a consultation', 
+                color: '#0069ff', 
+                textColor: '#ffffff', 
+                branding: true 
+            });
+            
+            // Hide the Calendly badge widget
+            setTimeout(function() {
+                const calendlyBadge = document.querySelector('.calendly-badge-widget');
+                if (calendlyBadge) {
+                    calendlyBadge.style.display = 'none';
+                }
+            }, 100);
+        }
+    </script>
     <!-- Calendly badge widget end -->
 </body>
 </html> 
