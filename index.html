@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InnovAI - Innovative AI Solutions</title>
+    <title>Panterberry - AI Consulting & Solutions</title>
+    <meta name="description" content="Panterberry - Pioneering ethical AI solutions for tomorrow's challenges. Expert AI consulting, custom development, and machine learning integration.">
+    <meta name="keywords" content="AI consulting, machine learning, artificial intelligence, AI solutions, custom AI development">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Add GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
                 <div class="logo">
-                    <img src="images/logo.svg" alt="InnovAI Logo">
+                    <img src="images/logo.png" alt="Panterberry Logo">
                 </div>
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="cta-button">Get Started <i class="fas fa-arrow-right"></i></button>
+                <button class="cta-button">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -30,15 +35,15 @@
         </div>
     </header>
 
-    <section id="hero" class="hero">
+    <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="badge">Next-Gen AI Solutions</div>
-                <h1>Transforming Ideas with <span class="highlight">Artificial Intelligence</span></h1>
-                <p>We help businesses leverage the power of AI to innovate, automate, and grow in the digital era.</p>
+                <div class="badge">AI Consulting & Solutions</div>
+                <h1>Transforming Businesses with <span class="highlight">Intelligent AI Solutions</span></h1>
+                <p>We help forward-thinking companies leverage cutting-edge artificial intelligence to solve complex problems, automate processes, and gain competitive advantage.</p>
                 <div class="cta-buttons">
-                    <button class="primary-button">Explore Solutions <i class="fas fa-rocket"></i></button>
-                    <button class="secondary-button">Learn More <i class="fas fa-arrow-right"></i></button>
+                    <button class="primary-button">Schedule a Free Consultation <i class="fas fa-arrow-right"></i></button>
+                    <button class="secondary-button">Explore Our Services <i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
             <div class="hero-image">
@@ -47,41 +52,53 @@
         </div>
     </section>
 
-    <section id="features" class="features">
+    <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <div class="badge">Features</div>
-                <h2>Our Key Features</h2>
-                <p>Discover how our AI solutions can transform your business</p>
+                <div class="badge">Our Services</div>
+                <h2>Expert AI Solutions</h2>
+                <p>Comprehensive AI services tailored to your business needs</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/service1.svg" alt="AI Strategy & Consulting">
                     </div>
-                    <h3>Machine Learning</h3>
-                    <p>Advanced algorithms that learn and adapt to your business needs.</p>
+                    <div class="service-content">
+                        <h3>AI Strategy & Consulting</h3>
+                        <p>Strategic guidance on implementing AI in your business. We help you identify opportunities, assess feasibility, and develop a roadmap for AI adoption.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/service2.svg" alt="Custom AI Development">
                     </div>
-                    <h3>Automation</h3>
-                    <p>Streamline operations with intelligent process automation.</p>
+                    <div class="service-content">
+                        <h3>Custom AI Development</h3>
+                        <p>Tailored AI solutions designed for your specific challenges. Our team of experts builds custom models and applications that deliver real business value.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/service3.svg" alt="Machine Learning Integration">
                     </div>
-                    <h3>Predictive Analytics</h3>
-                    <p>Forecast trends and make data-driven decisions.</p>
+                    <div class="service-content">
+                        <h3>Machine Learning Integration</h3>
+                        <p>Seamlessly integrate machine learning capabilities into your existing systems and workflows to enhance functionality and drive efficiency.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-comments"></i>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/service3.svg" alt="AI Training & Workshops">
                     </div>
-                    <h3>Natural Language</h3>
-                    <p>Enhance customer interactions with NLP technology.</p>
+                    <div class="service-content">
+                        <h3>AI Training & Workshops</h3>
+                        <p>Comprehensive training programs and workshops to help your team understand AI concepts, tools, and best practices for successful implementation.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,24 +109,24 @@
             <div class="about-content">
                 <div class="about-text">
                     <div class="badge">About Us</div>
-                    <h2>About InnovAI</h2>
-                    <p>We are a team of AI experts, data scientists, and developers passionate about creating innovative solutions that drive business growth.</p>
+                    <h2>Pioneering ethical AI solutions for tomorrow's challenges</h2>
+                    <p>At Panterberry, we're a team of AI experts, data scientists, and developers passionate about creating innovative solutions that drive business growth while maintaining ethical standards.</p>
                     <p>With years of experience in artificial intelligence and machine learning, we help organizations of all sizes harness the power of AI to solve complex problems and create new opportunities.</p>
+                    
                     <div class="stats-container">
                         <div class="stat-item">
-                            <span class="stat-number">98%</span>
-                            <span class="stat-label">Client Satisfaction</span>
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">AI Experts</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">200+</span>
                             <span class="stat-label">Projects Completed</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">AI Experts</span>
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Client Satisfaction</span>
                         </div>
                     </div>
-                    <button class="primary-button">Our Story <i class="fas fa-arrow-right"></i></button>
                 </div>
                 <div class="about-image">
                     <img src="images/about-image.svg" alt="Our Team">
@@ -118,73 +135,59 @@
         </div>
     </section>
 
-    <section id="services" class="services">
+    <section id="case-studies" class="case-studies">
         <div class="container">
             <div class="section-header">
-                <div class="badge">Services</div>
-                <h2>Our Services</h2>
-                <p>Comprehensive AI solutions tailored to your business needs</p>
+                <div class="badge">Success Stories</div>
+                <h2>What Our Clients Say</h2>
+                <p>Real-world impact of our AI solutions</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service1.svg" alt="AI Consulting">
-                    </div>
-                    <div class="service-content">
-                        <h3>AI Consulting</h3>
-                        <p>Strategic guidance on implementing AI in your business.</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service2.svg" alt="Custom AI Development">
-                    </div>
-                    <div class="service-content">
-                        <h3>Custom AI Development</h3>
-                        <p>Tailored AI solutions designed for your specific challenges.</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I was amazed at how quickly my new website was up and running—under 24 hours! The team not only delivered a sleek, user-friendly site but also ensured it perfectly captured my brand. Their efficiency and quality of work truly exceeded my expectations."</p>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial1.jpg" alt="Sarah Johnson">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>CEO, Swift Solutions</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service3.svg" alt="Data Analytics">
-                    </div>
-                    <div class="service-content">
-                        <h3>Data Analytics</h3>
-                        <p>Transform your data into actionable business insights.</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Integrating their chatbot transformed our customer service. Since implementation, we've seen a 40% increase in engagement, making interactions more dynamic and responsive. Their innovative solution has been a game-changer for our business."</p>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial2.jpg" alt="Dr. Michael Chen">
+                            <div class="author-info">
+                                <h4>Dr. Michael Chen</h4>
+                                <p>CTO, TechEngage Solutions</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
+    <section id="newsletter" class="newsletter">
         <div class="container">
-            <div class="section-header">
-                <div class="badge">Testimonials</div>
-                <h2>What Our Clients Say</h2>
-                <p>Success stories from businesses we've helped transform</p>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"InnovAI helped us implement machine learning algorithms that increased our operational efficiency by 40%. Their expertise and support were invaluable."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="images/client1.svg" alt="Client">
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>CTO, TechCorp</p>
-                        </div>
-                    </div>
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <div class="badge">Stay Updated</div>
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <p>Get the latest insights on AI trends, industry news, and exclusive content delivered to your inbox.</p>
                 </div>
-            </div>
-            <div class="testimonial-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+                <div class="newsletter-form">
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email Address" required>
+                            <button type="submit" class="primary-button">Subscribe <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -193,9 +196,9 @@
         <div class="container">
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="badge">Contact</div>
+                    <div class="badge">Contact Us</div>
                     <h2>Get In Touch</h2>
-                    <p>Ready to transform your business with AI? Contact us today!</p>
+                    <p>Ready to transform your business with AI? Contact us today for a free consultation!</p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -203,7 +206,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <p>info@innovai.com</p>
+                            <p>info@panterberry.com</p>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
@@ -212,7 +215,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <input type="text" placeholder="Your Name" required>
                         </div>
@@ -220,14 +223,19 @@
                             <input type="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Subject">
+                            <input type="text" placeholder="Company">
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" required></textarea>
+                            <textarea placeholder="Tell us about your project" required></textarea>
                         </div>
-                        <button type="submit" class="primary-button">Send Message <i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="primary-button">Schedule a Consultation <i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
+            </div>
+        </div>
+        <div class="chatbot-widget" id="chatbot">
+            <div class="chatbot-button">
+                <i class="fas fa-robot"></i>
             </div>
         </div>
     </section>
@@ -236,13 +244,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="images/logo.svg" alt="InnovAI Logo">
-                    <p>Transforming businesses with AI innovation</p>
+                    <img src="images/logo.png" alt="Panterberry Logo">
+                    <p>Pioneering ethical AI solutions for tomorrow's challenges</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -251,7 +260,7 @@
                         <ul>
                             <li><a href="#about">About Us</a></li>
                             <li><a href="#services">Services</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#case-studies">Case Studies</a></li>
                             <li><a href="#careers">Careers</a></li>
                         </ul>
                     </div>
@@ -259,7 +268,7 @@
                         <h3>Resources</h3>
                         <ul>
                             <li><a href="#blog">Blog</a></li>
-                            <li><a href="#case-studies">Case Studies</a></li>
+                            <li><a href="#whitepapers">Whitepapers</a></li>
                             <li><a href="#webinars">Webinars</a></li>
                             <li><a href="#documentation">Documentation</a></li>
                         </ul>
@@ -270,12 +279,13 @@
                             <li><a href="#privacy">Privacy Policy</a></li>
                             <li><a href="#terms">Terms of Service</a></li>
                             <li><a href="#cookies">Cookie Policy</a></li>
+                            <li><a href="#gdpr">GDPR Compliance</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 InnovAI. All rights reserved.</p>
+                <p>&copy; 2023 Panterberry. All rights reserved.</p>
             </div>
         </div>
     </footer>

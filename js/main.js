@@ -124,56 +124,240 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Simulate form submission
             const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
+            const originalText = submitBtn.innerHTML;
             
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             
             // Simulate API call
             setTimeout(() => {
                 alert('Thank you for your message! We will get back to you soon.');
                 this.reset();
                 submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
+                submitBtn.innerHTML = originalText;
             }, 1500);
         });
     }
     
-    // Simple stat numbers display
-    displayStats();
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('#newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // Simple validation
+            if (!email.trim()) {
+                alert('Please enter your email address.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+            
+            // Simulate API call
+            setTimeout(() => {
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }, 1500);
+        });
+    }
     
-    // Testimonial slider
-    initTestimonialSlider();
+    // Initialize particles
+    initParticles();
+    
+    // Add scroll listener for particles
+    window.addEventListener('scroll', updateParticlesOnScroll);
+    
+    // Initialize GSAP animations
+    initAnimations();
+    
+    // Initialize chatbot
+    initChatbot();
 });
 
-// Display stat numbers
-function displayStats() {
-    const statNumbers = document.querySelectorAll('.stat-number');
+// Create particle background
+function initParticles() {
+    // Create a particles container for the entire page if it doesn't exist
+    let particlesContainer = document.getElementById('particles');
     
-    statNumbers.forEach(stat => {
-        // Make sure the content is properly formatted
-        const content = stat.textContent;
-        if (content.includes('%')) {
-            stat.textContent = content;
-        } else if (content.includes('+')) {
-            stat.textContent = content;
+    if (!particlesContainer) {
+        particlesContainer = document.createElement('div');
+        particlesContainer.id = 'particles';
+        particlesContainer.className = 'particles-container';
+        document.body.appendChild(particlesContainer);
+    }
+    
+    const colors = ['rgba(138, 43, 226, 0.3)', 'rgba(212, 66, 255, 0.3)', 'rgba(255, 51, 102, 0.2)'];
+    const particleCount = 80; // Increased particle count for more coverage
+    
+    // Get document height to distribute particles vertically
+    const docHeight = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight
+    );
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random size between 5px and 30px with more variation
+        const size = Math.random() * 25 + 5;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position throughout the document
+        particle.style.left = `${Math.random() * 100}%`;
+        
+        // Distribute particles throughout the document height
+        // Use percentage for top position to ensure they're visible in viewport
+        if (i < particleCount / 2) {
+            // Half the particles in the initial viewport
+            particle.style.top = `${Math.random() * 100}%`;
+        } else {
+            // Half the particles distributed throughout the document
+            particle.style.top = `${Math.random() * docHeight}px`;
         }
+        
+        // Random color
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Random animation delay
+        particle.style.animationDelay = `${Math.random() * 10}s`;
+        
+        // Random opacity
+        particle.style.opacity = Math.random() * 0.6 + 0.1;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Update particles on scroll to ensure they appear throughout the page
+function updateParticlesOnScroll() {
+    const particlesContainer = document.getElementById('particles');
+    if (!particlesContainer) return;
+    
+    // Only add new particles occasionally when scrolling
+    if (Math.random() > 0.1) return;
+    
+    const colors = ['rgba(138, 43, 226, 0.3)', 'rgba(212, 66, 255, 0.3)', 'rgba(255, 51, 102, 0.2)'];
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    
+    // Create 1-3 new particles
+    const newParticleCount = Math.floor(Math.random() * 3) + 1;
+    
+    for (let i = 0; i < newParticleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random size
+        const size = Math.random() * 25 + 5;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Position near the current viewport
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${scrollY + Math.random() * viewportHeight * 1.5}px`;
+        
+        // Random color
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Random opacity
+        particle.style.opacity = Math.random() * 0.6 + 0.1;
+        
+        particlesContainer.appendChild(particle);
+        
+        // Remove particle after animation completes to prevent too many particles
+        setTimeout(() => {
+            if (particle && particle.parentNode) {
+                particle.parentNode.removeChild(particle);
+            }
+        }, 30000);
+    }
+}
+
+// Initialize GSAP animations
+function initAnimations() {
+    if (typeof gsap === 'undefined') return;
+    
+    // Register ScrollTrigger plugin
+    if (gsap.registerPlugin && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+    
+    // Hero section fade in
+    gsap.from('.hero-content', { 
+        opacity: 0, 
+        y: 30, 
+        duration: 1, 
+        ease: 'power2.out' 
+    });
+
+    // Animate sections on scroll
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        gsap.from(section, {
+            scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 50,
+            duration: 0.6,
+            ease: 'power2.out'
+        });
+    });
+
+    // Service cards animation
+    const serviceCards = document.querySelectorAll('.service-card');
+    gsap.from(serviceCards, {
+        scrollTrigger: {
+            trigger: '.services-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 30,
+        scale: 0.9,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out'
+    });
+
+    // Testimonial cards animation
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    gsap.from(testimonialCards, {
+        scrollTrigger: {
+            trigger: '.testimonials-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power2.out'
     });
 }
 
-// Testimonial slider
-function initTestimonialSlider() {
-    const dots = document.querySelectorAll('.testimonial-dots .dot');
-    if (!dots.length) return;
+// Initialize chatbot
+function initChatbot() {
+    const chatbotBtn = document.querySelector('.chatbot-button');
+    if (!chatbotBtn) return;
     
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            // Update active dot
-            document.querySelector('.testimonial-dots .dot.active').classList.remove('active');
-            dot.classList.add('active');
-            
-            // In a real slider, you would slide to the corresponding testimonial
-            console.log(`Slide to testimonial ${index + 1}`);
-        });
+    chatbotBtn.addEventListener('click', function() {
+        alert('AI Chatbot: Hello! How can I assist you today with your AI project needs? Welcome to Panterberry!');
     });
 } 
