@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot Integration - Panterberry AI Solutions</title>
+    <meta name="description" content="Enhance customer engagement with Panterberry's NLP-powered chatbots that provide 24/7 support and personalized interactions.">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Additional styles for card-based design */
+        .service-image img {
+            max-width: 80%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .service-card, .benefit-card, .feature-card, .integration-card, .process-step {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover, .benefit-card:hover, .feature-card:hover, .integration-card:hover, .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .case-study-content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .case-study-image img {
+            max-width: 80%;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-row {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-row:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-image img {
+            max-width: 80%;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .integration-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(107, 142, 251, 0.3);
+        }
+        
+        .process-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(107, 142, 251, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../../../index.html">
+                        <img src="../../../images/logo.png" alt="Panterberry Logo">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../../../pages/services/index.html" class="active">Services</a></li>
+                    <li><a href="../../../pages/about/index.html">About Us</a></li>
+                    <li><a href="../../../index.html#contact">Contact</a></li>
+                </ul>
+                <button class="cta-button">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content" data-aos="fade-up">
+                <div class="badge">AI Chatbot Integration</div>
+                <h1>Intelligent <span class="highlight">Conversational AI</span> for Your Business</h1>
+                <p>Enhance customer engagement with NLP-powered chatbots that provide 24/7 support and personalized interactions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-overview service-card" data-aos="fade-up">
+                <div class="service-image" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="../../../images/service3.svg" alt="AI Chatbot Integration">
+                </div>
+                <div class="service-description" data-aos="fade-left" data-aos-delay="300">
+                    <h2>Transform Customer Interactions</h2>
+                    <p>Our AI chatbots go beyond basic Q&A. Powered by advanced natural language processing, they understand context, sentiment, and intent to deliver human-like conversations that drive engagement and satisfaction.</p>
+                    <p>Whether you need customer support automation, lead qualification, or personalized product recommendations, our chatbots integrate seamlessly with your existing platforms to provide 24/7 assistance that scales with your business.</p>
+                    <ul class="service-features">
+                        <li><strong>Natural Language Understanding:</strong> Chatbots that comprehend context, nuance, and user intent</li>
+                        <li><strong>Omnichannel Deployment:</strong> Consistent experience across website, social media, and messaging apps</li>
+                        <li><strong>Continuous Learning:</strong> AI that improves with every interaction</li>
+                        <li><strong>Seamless Handoff:</strong> Smart escalation to human agents when needed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-benefits">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Benefits of AI Chatbot Integration</h2>
+                <p>Why businesses choose our conversational AI solutions</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="flip-up" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7 Availability</h3>
+                    <p>Provide instant responses to customer inquiries at any time, improving satisfaction and engagement.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="flip-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Increased Efficiency</h3>
+                    <p>Automate up to 80% of routine inquiries, allowing your team to focus on high-value tasks.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="flip-up" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Enhanced Customer Experience</h3>
+                    <p>Deliver personalized interactions that adapt to individual customer needs and preferences.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="flip-up" data-aos-delay="400">
+                    <div class="benefit-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Valuable Insights</h3>
+                    <p>Gain actionable data on customer needs, pain points, and behavior patterns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chatbot-features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Advanced Chatbot Capabilities</h2>
+                <p>Powerful features that set our AI chatbots apart</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-image" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="../../../images/chatbot-feature1.png" alt="Multilingual Support">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Multilingual Support</h3>
+                        <p>Our chatbots can communicate in over 100 languages, automatically detecting and responding in the user's preferred language.</p>
+                        <ul>
+                            <li>Real-time translation capabilities</li>
+                            <li>Cultural context awareness</li>
+                            <li>Dialect and regional language support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-row reverse" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-content">
+                        <h3>Sentiment Analysis</h3>
+                        <p>Detect customer emotions and adjust responses accordingly, ensuring appropriate tone and escalation when needed.</p>
+                        <ul>
+                            <li>Emotion detection and appropriate response</li>
+                            <li>Frustration recognition and priority routing</li>
+                            <li>Satisfaction tracking and reporting</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="../../../images/chatbot-feature2.png" alt="Sentiment Analysis">
+                    </div>
+                </div>
+                
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-image" data-aos="zoom-in" data-aos-delay="400">
+                        <img src="../../../images/chatbot-feature3.png" alt="Personalization Engine">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Personalization Engine</h3>
+                        <p>Deliver tailored recommendations and responses based on user history, preferences, and behavior patterns.</p>
+                        <ul>
+                            <li>Customer profile integration</li>
+                            <li>Purchase history analysis</li>
+                            <li>Behavioral prediction models</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="integration-options">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Seamless Integration Options</h2>
+                <p>Deploy our AI chatbots across all your digital touchpoints</p>
+            </div>
+            
+            <div class="integration-grid">
+                <div class="integration-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="integration-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Website Integration</h3>
+                    <p>Embed our chatbot directly into your website with just a few lines of code. Customizable appearance to match your brand.</p>
+                </div>
+                
+                <div class="integration-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="integration-icon">
+                        <i class="fab fa-facebook-messenger"></i>
+                    </div>
+                    <h3>Messaging Platforms</h3>
+                    <p>Deploy on Facebook Messenger, WhatsApp, Telegram, and other popular messaging platforms.</p>
+                </div>
+                
+                <div class="integration-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="integration-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Apps</h3>
+                    <p>Integrate our chatbot SDK into your iOS and Android applications for native in-app support.</p>
+                </div>
+                
+                <div class="integration-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="integration-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Customer Service Platforms</h3>
+                    <p>Seamless integration with Zendesk, Salesforce, Intercom, and other customer service solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-study">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Success Story</h2>
+                <p>See how our AI chatbot transformed customer support for an e-commerce leader</p>
+            </div>
+            
+            <div class="case-study-content" data-aos="fade-up" data-aos-delay="200">
+                <div class="case-study-image" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="../../../images/testimonial3.png" alt="Success Story">
+                </div>
+                <div class="case-study-text">
+                    <h3>E-commerce Giant Reduces Support Costs by 62%</h3>
+                    <p>A leading online retailer implemented our AI chatbot solution, resulting in:</p>
+                    <ul>
+                        <li>62% reduction in customer support costs</li>
+                        <li>89% customer satisfaction rating for chatbot interactions</li>
+                        <li>3.5 minute average resolution time (down from 24 minutes)</li>
+                        <li>42% increase in after-hours sales conversions</li>
+                    </ul>
+                    <blockquote>
+                        "The AI chatbot has completely transformed our customer service operations. Not only are we saving significantly on costs, but our customers are actually reporting higher satisfaction levels with the chatbot than with human agents for many common issues."
+                    </blockquote>
+                    <p class="quote-author">- David Rodriguez, Customer Experience Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="implementation-process">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Implementation Process</h2>
+                <p>Your journey to AI-powered customer engagement</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="process-step" data-aos="fade-right" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Discovery & Planning</h3>
+                        <p>We analyze your business needs, customer journey, and existing systems to create a tailored chatbot strategy.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-aos="fade-right" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Knowledge Base Development</h3>
+                        <p>Our team works with you to build a comprehensive knowledge base and conversation flows.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Training & Testing</h3>
+                        <p>We train the AI on your specific industry language and test extensively to ensure accuracy.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-aos="fade-right" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Deployment & Integration</h3>
+                        <p>Seamless implementation across your chosen platforms with minimal disruption.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-aos="fade-right" data-aos-delay="500">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Continuous Improvement</h3>
+                        <p>Ongoing analysis and optimization to improve performance and expand capabilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Transform Your Customer Engagement?</h2>
+                <p>Contact us today to schedule a demo and see how our AI chatbot solutions can enhance your customer experience.</p>
+                <div class="cta-buttons">
+                    <a href="../../../index.html#contact" class="primary-button" data-aos="zoom-in" data-aos-delay="200">Schedule a Demo <i class="fas fa-arrow-right"></i></a>
+                    <a href="../index.html" class="secondary-button" data-aos="zoom-in" data-aos-delay="300">Explore Other Services <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../../../images/logo.png" alt="Panterberry Logo">
+                    <p>Pioneering ethical AI solutions for tomorrow's challenges</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="../../../pages/about/index.html">About Us</a></li>
+                            <li><a href="../../../pages/services/index.html">Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Panterberry. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chatbot-widget" id="chatbot">
+        <div class="chatbot-button">
+            <i class="fas fa-robot"></i>
+        </div>
+    </div>
+
+    <script src="../../../js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS with enhanced settings
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: false,
+                mirror: true,
+                offset: 100,
+                delay: 100
+            });
+            
+            // Add GSAP animations
+            gsap.from(".page-hero-content", {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+            
+            gsap.from(".service-card", {
+                scrollTrigger: {
+                    trigger: ".service-card",
+                    start: "top 80%"
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: "back.out(1.7)"
+            });
+            
+            // Animate benefit cards sequentially
+            gsap.utils.toArray(".benefit-card").forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%"
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.6,
+                    delay: i * 0.2,
+                    ease: "power2.out"
+                });
+            });
+            
+            // Animate feature rows with staggered effect
+            gsap.utils.toArray(".feature-row").forEach((row, i) => {
+                gsap.from(row, {
+                    scrollTrigger: {
+                        trigger: row,
+                        start: "top 80%"
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.3,
+                    ease: "power3.out"
+                });
+            });
+            
+            // Animate integration cards
+            gsap.from(".integration-card", {
+                scrollTrigger: {
+                    trigger: ".integration-grid",
+                    start: "top 80%"
+                },
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.15,
+                ease: "back.out(1.7)"
+            });
+            
+            // Animate process steps
+            gsap.utils.toArray(".process-step").forEach((step, i) => {
+                gsap.from(step, {
+                    scrollTrigger: {
+                        trigger: step,
+                        start: "top 85%"
+                    },
+                    x: -50,
+                    opacity: 0,
+                    duration: 0.7,
+                    delay: i * 0.2,
+                    ease: "power2.out"
+                });
+            });
+        });
+    </script>
+    
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/hollowverse42', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+    <!-- Calendly badge widget end -->
+</body>
+</html> 

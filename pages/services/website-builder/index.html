@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Website Builder - Panterberry AI Solutions</title>
+    <meta name="description" content="Create stunning, SEO-optimized websites in minutes with Panterberry's AI Website Builder - no coding required.">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Additional styles for card-based design */
+        .service-image img {
+            max-width: 80%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .service-card, .benefit-card, .feature-card, .pricing-card, .step {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover, .benefit-card:hover, .feature-card:hover, .pricing-card:hover, .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .case-study-content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .case-study-image img {
+            max-width: 80%;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .step {
+            flex: 1 1 300px;
+            max-width: 350px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 5px 15px rgba(107, 142, 251, 0.3);
+        }
+        
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 1px solid rgba(107, 142, 251, 0.3);
+            z-index: 2;
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.08) translateY(-5px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../../../index.html">
+                        <img src="../../../images/logo.png" alt="Panterberry Logo">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../../../pages/services/index.html" class="active">Services</a></li>
+                    <li><a href="../../../pages/about/index.html">About Us</a></li>
+                    <li><a href="../../../index.html#contact">Contact</a></li>
+                </ul>
+                <button class="cta-button">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content" data-aos="fade-up">
+                <div class="badge">AI Website Builder</div>
+                <h1>Build <span class="highlight">Beautiful Websites</span> in Minutes</h1>
+                <p>Our AI-powered website builder creates stunning, SEO-optimized websites tailored to your business needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-overview service-card" data-aos="fade-up">
+                <div class="service-image" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="../../../images/service2.svg" alt="AI Website Builder">
+                </div>
+                <div class="service-description" data-aos="fade-left" data-aos-delay="300">
+                    <h2>Website Creation Reimagined</h2>
+                    <p>Our AI Website Builder revolutionizes the way businesses establish their online presence. Simply describe your business, and our AI generates a complete, SEO-optimized website with custom content, images, and functionality—all in minutes, not weeks.</p>
+                    <p>With intelligent design algorithms and content generation capabilities, our platform creates websites that not only look professional but are also optimized for conversions and search engine visibility.</p>
+                    <ul class="service-features">
+                        <li><strong>Instant Generation:</strong> Create a complete website in minutes by simply describing your business</li>
+                        <li><strong>SEO Optimization:</strong> Built-in SEO tools ensure your site ranks well in search results</li>
+                        <li><strong>Responsive Design:</strong> Websites automatically adapt to all devices and screen sizes</li>
+                        <li><strong>Custom Content:</strong> AI-generated text and imagery tailored to your industry and brand</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-benefits">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Benefits of Our AI Website Builder</h2>
+                <p>Why businesses choose our AI-powered website solution</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="flip-up" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Speed to Market</h3>
+                    <p>Launch your business online in minutes instead of weeks or months with traditional web development.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="flip-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Built-in SEO</h3>
+                    <p>Every website comes with optimized meta tags, schema markup, and content structure for better search rankings.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="flip-up" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Professional Design</h3>
+                    <p>Get access to beautiful, modern designs that would normally cost thousands from a professional designer.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="flip-up" data-aos-delay="400">
+                    <div class="benefit-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>No Coding Required</h3>
+                    <p>Create and manage your website without any technical knowledge or coding skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>How It Works</h2>
+                <p>Three simple steps to your new website</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Describe Your Business</h3>
+                        <p>Tell our AI about your business, industry, target audience, and preferred style.</p>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Review and Customize</h3>
+                        <p>Preview your AI-generated website and make any desired adjustments to content or design.</p>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Publish and Grow</h3>
+                        <p>Launch your website with one click and use our AI tools to continuously improve and update it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-study">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Success Story</h2>
+                <p>See how our AI Website Builder helped a small business thrive</p>
+            </div>
+            
+            <div class="case-study-content" data-aos="fade-up" data-aos-delay="200">
+                <div class="case-study-image" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="../../../images/testimonial2.png" alt="Success Story">
+                </div>
+                <div class="case-study-text">
+                    <h3>Local Bakery Increases Online Orders by 215%</h3>
+                    <p>A family-owned bakery used our AI Website Builder to create their first professional website, resulting in:</p>
+                    <ul>
+                        <li>215% increase in online orders within the first month</li>
+                        <li>First page Google ranking for local bakery searches</li>
+                        <li>50% reduction in time spent on administrative tasks</li>
+                        <li>Expanded customer base beyond their local neighborhood</li>
+                    </ul>
+                    <blockquote>
+                        "We never thought having a professional website would be possible with our limited budget and technical skills. The AI Website Builder created a beautiful site that perfectly captures our brand, and the results have been incredible."
+                    </blockquote>
+                    <p class="quote-author">- Michael Chen, Owner of Sweet Traditions Bakery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that fits your business needs</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">$29<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 5-page AI-generated website</li>
+                        <li><i class="fas fa-check"></i> Basic SEO optimization</li>
+                        <li><i class="fas fa-check"></i> Mobile responsive design</li>
+                        <li><i class="fas fa-check"></i> Contact form</li>
+                        <li><i class="fas fa-check"></i> Free domain for 1 year</li>
+                    </ul>
+                    <a href="../../../index.html#contact" class="pricing-button">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-header">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3>Business</h3>
+                        <div class="price">$79<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 10-page AI-generated website</li>
+                        <li><i class="fas fa-check"></i> Advanced SEO optimization</li>
+                        <li><i class="fas fa-check"></i> E-commerce functionality</li>
+                        <li><i class="fas fa-check"></i> Blog with AI content suggestions</li>
+                        <li><i class="fas fa-check"></i> Free domain for 1 year</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                    </ul>
+                    <a href="../../../index.html#contact" class="pricing-button">Get Started</a>
+                </div>
+                
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">$199<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited pages</li>
+                        <li><i class="fas fa-check"></i> Premium SEO optimization</li>
+                        <li><i class="fas fa-check"></i> Advanced e-commerce</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                        <li><i class="fas fa-check"></i> Weekly AI content updates</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                    </ul>
+                    <a href="../../../index.html#contact" class="pricing-button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Build Your Dream Website?</h2>
+                <p>Contact us today to schedule a demo and see how our AI Website Builder can transform your online presence.</p>
+                <div class="cta-buttons">
+                    <a href="../../../index.html#contact" class="primary-button" data-aos="zoom-in" data-aos-delay="200">Schedule a Demo <i class="fas fa-arrow-right"></i></a>
+                    <a href="../index.html" class="secondary-button" data-aos="zoom-in" data-aos-delay="300">Explore Other Services <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../../../images/logo.png" alt="Panterberry Logo">
+                    <p>Pioneering ethical AI solutions for tomorrow's challenges</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="../../../pages/about/index.html">About Us</a></li>
+                            <li><a href="../../../pages/services/index.html">Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Panterberry. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chatbot-widget" id="chatbot">
+        <div class="chatbot-button">
+            <i class="fas fa-robot"></i>
+        </div>
+    </div>
+
+    <script src="../../../js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS with enhanced settings
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: false,
+                mirror: true,
+                offset: 100,
+                delay: 100
+            });
+            
+            // Add GSAP animations
+            gsap.from(".page-hero-content", {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+            
+            gsap.from(".service-card", {
+                scrollTrigger: {
+                    trigger: ".service-card",
+                    start: "top 80%"
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: "back.out(1.7)"
+            });
+            
+            // Animate benefit cards sequentially
+            gsap.utils.toArray(".benefit-card").forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%"
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.6,
+                    delay: i * 0.2,
+                    ease: "power2.out"
+                });
+            });
+            
+            // Animate steps with staggered effect
+            gsap.from(".step", {
+                scrollTrigger: {
+                    trigger: ".steps-container",
+                    start: "top 80%"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "back.out(1.7)"
+            });
+            
+            // Animate pricing cards
+            gsap.from(".pricing-card", {
+                scrollTrigger: {
+                    trigger: ".pricing-grid",
+                    start: "top 80%"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
+        });
+    </script>
+    
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/hollowverse42', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+    <!-- Calendly badge widget end -->
+</body>
+</html> 

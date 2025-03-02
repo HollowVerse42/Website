@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Panterberry AI Consulting & Solutions</title>
+    <meta name="description" content="Explore Panterberry's comprehensive AI services including strategy consulting, custom development, machine learning integration, and AI training workshops.">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            background: #fff;
+            margin-bottom: 30px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .service-features li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #4776E6;
+            font-weight: bold;
+        }
+        
+        .process-timeline .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
+            z-index: 2;
+        }
+        
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            bottom: -50px;
+            width: 2px;
+            background: #e0e0e0;
+            transform: translateX(-50%);
+        }
+        
+        .process-timeline .timeline-item:last-child .timeline-dot::before {
+            display: none;
+        }
+        
+        .timeline-content {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../../index.html">
+                        <img src="../../images/logo.png" alt="Panterberry Logo">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../pages/services/index.html" class="active">Services</a></li>
+                    <li><a href="../../pages/about/index.html">About Us</a></li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+                <button class="cta-button">Schedule a Consultation <i class="fas fa-calendar-alt"></i></button>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="badge">Our Services</div>
+                <h1>Cutting-Edge <span class="highlight">AI Solutions</span> for Your Business</h1>
+                <p>We offer innovative AI-powered services designed to transform your digital presence, engage your audience, and drive measurable business results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Services</h2>
+                <p>Advanced AI solutions to elevate your brand and digital experience</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-image">
+                        <img src="../../images/service1.svg" alt="AI-Powered Brand Engagement">
+                    </div>
+                    <div class="service-content">
+                        <h3>AI-Powered Brand Engagement</h3>
+                        <p>Imagine your brand promoted by virtual influencers who never sleep. Our custom AI models analyze consumer behavior to create hyper-personalized campaigns—dynamic ads, social content, and video endorsements tailored to your audience.</p>
+                        <ul class="service-features">
+                            <li><strong>Why It Works:</strong> Boost conversions with real-time sentiment analysis and data-driven storytelling.</li>
+                            <li><strong>Our Promise:</strong> "Turn followers into loyal customers with AI that speaks their language."</li>
+                        </ul>
+                        <a href="brand-engagement/index.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-image">
+                        <img src="../../images/service2.svg" alt="AI Website Builder">
+                    </div>
+                    <div class="service-content">
+                        <h3>AI Website Builder</h3>
+                        <p>Launch a stunning, high-performance website in days, not months. Our AI crafts SEO-optimized layouts, generates engaging copy, and ensures mobile responsiveness—all while learning from user interactions to improve over time.</p>
+                        <ul class="service-features">
+                            <li><strong>Features:</strong> Auto-updating content, e-commerce integration, and AI-driven A/B testing.</li>
+                            <li><strong>Our Promise:</strong> "Your digital storefront, built smarter and faster."</li>
+                        </ul>
+                        <a href="website-builder/index.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-image">
+                        <img src="../../images/service3.svg" alt="AI Chatbot Integration">
+                    </div>
+                    <div class="service-content">
+                        <h3>AI Chatbot Integration</h3>
+                        <p>Engage visitors 24/7 with chatbots that do more than answer FAQs. Our NLP-powered assistants handle bookings, process orders, and even upsell products—resulting in 60% higher engagement and happier customers.</p>
+                        <ul class="service-features">
+                            <li><strong>Perks:</strong> Multilingual support, CRM integration, and proactive conversation triggers.</li>
+                            <li><strong>Our Promise:</strong> "Let AI turn clicks into conversations, and conversations into revenue."</li>
+                        </ul>
+                        <a href="chatbot-integration/index.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Service Process</h2>
+                <p>How we work with you to deliver exceptional AI solutions</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>1. Discovery & Assessment</h4>
+                        <p>We begin by understanding your business, challenges, and goals. Our team conducts a thorough assessment to identify opportunities where AI can create the most value.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2. Strategy Development</h4>
+                        <p>Based on our assessment, we develop a comprehensive AI strategy and roadmap tailored to your specific needs, including technology selection, implementation plan, and ROI projections.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>3. Solution Design & Development</h4>
+                        <p>Our expert team designs and develops custom AI solutions, ensuring they integrate seamlessly with your existing systems and workflows while meeting your specific requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>4. Implementation & Integration</h4>
+                        <p>We implement the solution in your environment, ensuring proper integration, testing, and validation to guarantee optimal performance and reliability.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>5. Training & Knowledge Transfer</h4>
+                        <p>We provide comprehensive training to your team, ensuring they have the knowledge and skills needed to effectively use and maintain the AI solution.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>6. Ongoing Support & Optimization</h4>
+                        <p>Our relationship doesn't end at implementation. We provide ongoing support, monitoring, and optimization to ensure your AI solution continues to deliver value as your business evolves.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business with AI?</h2>
+                <p>Contact us today to schedule a free consultation and discover how our AI solutions can help you achieve your business goals.</p>
+                <div class="cta-buttons">
+                    <a href="../../index.html#contact" class="primary-button">Schedule a Consultation <i class="fas fa-arrow-right"></i></a>
+                    <a href="../../pages/about/index.html" class="secondary-button">Learn About Us <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../../images/logo.png" alt="Panterberry Logo">
+                    <p>Pioneering ethical AI solutions for tomorrow's challenges</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="../../pages/about/index.html">About Us</a></li>
+                            <li><a href="../../pages/services/index.html">Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Panterberry. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chatbot-widget" id="chatbot">
+        <div class="chatbot-button">
+            <i class="fas fa-robot"></i>
+        </div>
+    </div>
+
+    <script src="../../js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // GSAP animations
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate service cards on scroll
+            gsap.from('.service-card', {
+                scrollTrigger: {
+                    trigger: '.services-overview',
+                    start: 'top 70%'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2
+            });
+            
+            // Animate timeline items
+            gsap.from('.timeline-item', {
+                scrollTrigger: {
+                    trigger: '.service-process',
+                    start: 'top 70%'
+                },
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2
+            });
+            
+            // Add hover effects to service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    gsap.to(this.querySelector('.service-content h3'), {
+                        color: '#4776E6',
+                        duration: 0.3
+                    });
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    gsap.to(this.querySelector('.service-content h3'), {
+                        color: '#333',
+                        duration: 0.3
+                    });
+                });
+            });
+            
+            // Add hover effects to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-content');
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    gsap.to(this, {
+                        backgroundColor: '#f9f9ff',
+                        duration: 0.3
+                    });
+                    
+                    gsap.to(this.querySelector('h4'), {
+                        color: '#4776E6',
+                        duration: 0.3
+                    });
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    gsap.to(this, {
+                        backgroundColor: '#fff',
+                        duration: 0.3
+                    });
+                    
+                    gsap.to(this.querySelector('h4'), {
+                        color: '#333',
+                        duration: 0.3
+                    });
+                });
+            });
+        });
+    </script>
+    
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/hollowverse42', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+    <!-- Calendly badge widget end -->
+</body>
+</html> 

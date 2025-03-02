@@ -4,73 +4,107 @@
   <!-- Decorative Background -->
   <circle cx="150" cy="100" r="80" fill="#E0E7FF" />
   
-  <!-- Chart Elements -->
-  <g transform="translate(75, 50)">
-    <!-- Chart Background -->
-    <rect x="0" y="0" width="150" height="100" rx="5" fill="white" stroke="#E5E7EB" stroke-width="1" />
+  <!-- Chatbot Interface -->
+  <g transform="translate(75, 40)">
+    <!-- Chat Window -->
+    <rect x="0" y="0" width="150" height="120" rx="8" fill="white" stroke="#E5E7EB" stroke-width="2" />
     
-    <!-- Grid Lines -->
-    <line x1="0" y1="25" x2="150" y2="25" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 2" />
-    <line x1="0" y1="50" x2="150" y2="50" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 2" />
-    <line x1="0" y1="75" x2="150" y2="75" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 2" />
-    <line x1="30" y1="0" x2="30" y2="100" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 2" />
-    <line x1="60" y1="0" x2="60" y2="100" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 2" />
-    <line x1="90" y1="0" x2="90" y2="100" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 2" />
-    <line x1="120" y1="0" x2="120" y2="100" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 2" />
+    <!-- Chat Header -->
+    <rect x="0" y="0" width="150" height="25" rx="8" fill="#4F46E5" />
+    <text x="60" y="17" fill="white" font-family="sans-serif" font-weight="bold" font-size="12">AI Chatbot</text>
+    <circle cx="140" cy="12" r="4" fill="white" />
     
-    <!-- X and Y Axis -->
-    <line x1="0" y1="100" x2="150" y2="100" stroke="#1F2937" stroke-width="2" />
-    <line x1="0" y1="0" x2="0" y2="100" stroke="#1F2937" stroke-width="2" />
+    <!-- User Message Bubbles -->
+    <g transform="translate(10, 35)">
+      <!-- User Message 1 -->
+      <rect x="40" y="0" width="90" height="20" rx="10" fill="#E5E7EB" />
+      <text x="50" y="14" fill="#1F2937" font-family="sans-serif" font-size="10">Hello, I need help!</text>
+      
+      <!-- User Avatar -->
+      <circle cx="140" cy="10" r="8" fill="#818CF8" />
+      <path d="M140 7 C142 7 143 5 143 3 C143 1 142 -1 140 -1 C138 -1 137 1 137 3 C137 5 138 7 140 7 Z" fill="white" />
+      <path d="M140 7 C135 7 132 10 132 14 C132 16 134 18 140 18 C146 18 148 16 148 14 C148 10 145 7 140 7 Z" fill="white" />
+    </g>
     
-    <!-- Data Line -->
-    <path d="M0 80 L30 60 L60 70 L90 30 L120 40 L150 20" stroke="#4F46E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <!-- AI Response Bubbles -->
+    <g transform="translate(10, 65)">
+      <!-- AI Avatar -->
+      <circle cx="10" cy="10" r="8" fill="#4F46E5" />
+      <text x="6" y="14" fill="white" font-family="sans-serif" font-weight="bold" font-size="10">AI</text>
+      
+      <!-- AI Message 1 -->
+      <rect x="25" y="0" width="105" height="30" rx="10" fill="#4F46E5" />
+      <text x="35" y="14" fill="white" font-family="sans-serif" font-size="10">Hi there! I'm your AI</text>
+      <text x="35" y="24" fill="white" font-family="sans-serif" font-size="10">assistant. How can I help?</text>
+    </g>
     
-    <!-- Data Points -->
-    <circle cx="0" cy="80" r="4" fill="#4F46E5" />
-    <circle cx="30" cy="60" r="4" fill="#4F46E5" />
-    <circle cx="60" cy="70" r="4" fill="#4F46E5" />
-    <circle cx="90" cy="30" r="4" fill="#4F46E5" />
-    <circle cx="120" cy="40" r="4" fill="#4F46E5" />
-    <circle cx="150" cy="20" r="4" fill="#4F46E5" />
-    
-    <!-- Area Under Curve -->
-    <path d="M0 80 L30 60 L60 70 L90 30 L120 40 L150 20 L150 100 L0 100 Z" fill="#4F46E5" fill-opacity="0.2" />
+    <!-- User Message 2 -->
+    <g transform="translate(10, 105)">
+      <rect x="40" y="0" width="90" height="20" rx="10" fill="#E5E7EB" />
+      <text x="50" y="14" fill="#1F2937" font-family="sans-serif" font-size="10">I want to book a demo</text>
+      
+      <!-- User Avatar -->
+      <circle cx="140" cy="10" r="8" fill="#818CF8" />
+    </g>
   </g>
   
-  <!-- Data Icons -->
-  <g transform="translate(50, 40)">
-    <circle cx="0" cy="0" r="15" fill="#10B981" />
-    <rect x="-7" y="-7" width="14" height="2" fill="white" />
-    <rect x="-7" y="-2" width="10" height="2" fill="white" />
-    <rect x="-7" y="3" width="14" height="2" fill="white" />
-    <rect x="-7" y="8" width="7" height="2" fill="white" />
+  <!-- NLP Elements -->
+  <g transform="translate(50, 60)">
+    <!-- Language Processing Circle -->
+    <circle cx="0" cy="0" r="15" fill="#4F46E5" />
+    
+    <!-- Text Analysis Icon -->
+    <rect x="-8" y="-6" width="16" height="2" fill="white" />
+    <rect x="-8" y="-2" width="12" height="2" fill="white" />
+    <rect x="-8" y="2" width="16" height="2" fill="white" />
+    <rect x="-8" y="6" width="10" height="2" fill="white" />
   </g>
   
-  <g transform="translate(240, 150)">
-    <circle cx="0" cy="0" r="15" fill="#10B981" />
-    <path d="M-5 -5 L5 -5 L5 5 L-5 5 Z" stroke="white" stroke-width="2" fill="none" />
-    <line x1="-3" y1="0" x2="3" y2="0" stroke="white" stroke-width="2" />
-    <line x1="0" y1="-3" x2="0" y2="3" stroke="white" stroke-width="2" />
+  <!-- Intent Recognition -->
+  <g transform="translate(50, 140)">
+    <!-- Intent Circle -->
+    <circle cx="0" cy="0" r="15" fill="#4F46E5" />
+    
+    <!-- Target Icon -->
+    <circle cx="0" cy="0" r="10" stroke="white" stroke-width="1.5" fill="none" />
+    <circle cx="0" cy="0" r="5" stroke="white" stroke-width="1.5" fill="none" />
+    <circle cx="0" cy="0" r="2" fill="white" />
   </g>
   
-  <!-- Decorative Elements -->
-  <circle cx="40" cy="160" r="5" fill="#4F46E5" opacity="0.5" />
-  <circle cx="260" cy="40" r="5" fill="#4F46E5" opacity="0.5" />
-  <circle cx="200" cy="170" r="3" fill="#4F46E5" opacity="0.5" />
-  <circle cx="100" cy="30" r="3" fill="#4F46E5" opacity="0.5" />
-  
-  <!-- Small Bar Charts -->
-  <g transform="translate(30, 120)">
-    <rect x="0" y="0" width="5" height="15" fill="#818CF8" />
-    <rect x="7" y="5" width="5" height="10" fill="#818CF8" />
-    <rect x="14" y="0" width="5" height="15" fill="#818CF8" />
-    <rect x="21" y="7" width="5" height="8" fill="#818CF8" />
+  <!-- Multilingual Support -->
+  <g transform="translate(240, 60)">
+    <!-- Language Circle -->
+    <circle cx="0" cy="0" r="15" fill="#4F46E5" />
+    
+    <!-- Globe Icon -->
+    <circle cx="0" cy="0" r="8" stroke="white" stroke-width="1.5" fill="none" />
+    <path d="M-8 0 H8 M0 -8 V8 M-6 -4 A10 10 0 0 0 6 -4 M-6 4 A10 10 0 0 1 6 4" stroke="white" stroke-width="1.5" fill="none" />
   </g>
   
-  <g transform="translate(240, 30)">
-    <rect x="0" y="0" width="5" height="15" fill="#818CF8" />
-    <rect x="7" y="5" width="5" height="10" fill="#818CF8" />
-    <rect x="14" y="0" width="5" height="15" fill="#818CF8" />
-    <rect x="21" y="7" width="5" height="8" fill="#818CF8" />
+  <!-- Integration Elements -->
+  <g transform="translate(240, 140)">
+    <!-- Integration Circle -->
+    <circle cx="0" cy="0" r="15" fill="#4F46E5" />
+    
+    <!-- Connection Icon -->
+    <path d="M-5 -5 L5 5 M-5 5 L5 -5" stroke="white" stroke-width="2" />
+    <circle cx="-5" cy="-5" r="3" fill="white" />
+    <circle cx="5" cy="5" r="3" fill="white" />
+    <circle cx="-5" cy="5" r="3" fill="white" />
+    <circle cx="5" cy="-5" r="3" fill="white" />
   </g>
+  
+  <!-- Connection Lines -->
+  <line x1="65" y1="60" x2="85" y2="70" stroke="#4F46E5" stroke-width="1" />
+  <line x1="65" y1="140" x2="85" y2="130" stroke="#4F46E5" stroke-width="1" />
+  <line x1="225" y1="60" x2="205" y2="70" stroke="#4F46E5" stroke-width="1" />
+  <line x1="225" y1="140" x2="205" y2="130" stroke="#4F46E5" stroke-width="1" />
+  
+  <!-- NLP Processing Waves -->
+  <path d="M120 30 Q 150 10 180 30 Q 210 50 240 30" stroke="#818CF8" stroke-width="1" fill="none" />
+  <path d="M120 170 Q 150 190 180 170 Q 210 150 240 170" stroke="#818CF8" stroke-width="1" fill="none" />
+  
+  <!-- AI Pulse -->
+  <circle cx="150" cy="100" r="90" stroke="#4F46E5" stroke-width="1" stroke-dasharray="4 4" />
+  <circle cx="150" cy="100" r="100" stroke="#4F46E5" stroke-width="1" stroke-dasharray="4 4" />
 </svg> 
